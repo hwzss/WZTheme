@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dpV-p6-8Ks">
+                                <rect key="frame" x="157.5" y="303.5" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="60" id="XgZ-ue-m18"/>
+                                    <constraint firstAttribute="width" constant="60" id="xDt-UD-JAy"/>
+                                </constraints>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QbW-ht-RqX">
+                                <rect key="frame" x="157" y="391" width="60" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="60" id="FEw-DF-V5P"/>
+                                    <constraint firstAttribute="height" constant="60" id="aKy-DL-JoG"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="QbW-ht-RqX" firstAttribute="top" secondItem="dpV-p6-8Ks" secondAttribute="bottom" constant="27.5" id="Arl-eB-iX9"/>
+                            <constraint firstItem="dpV-p6-8Ks" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="FyT-xq-ufa"/>
+                            <constraint firstItem="QbW-ht-RqX" firstAttribute="width" secondItem="dpV-p6-8Ks" secondAttribute="width" id="LyT-TU-iEu"/>
+                            <constraint firstItem="QbW-ht-RqX" firstAttribute="height" secondItem="dpV-p6-8Ks" secondAttribute="height" id="v9c-Kl-KhN"/>
+                            <constraint firstItem="dpV-p6-8Ks" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vCm-td-2y4"/>
+                            <constraint firstItem="QbW-ht-RqX" firstAttribute="centerX" secondItem="dpV-p6-8Ks" secondAttribute="centerX" id="vdo-zu-m3G"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="aImageV" destination="dpV-p6-8Ks" id="zL8-m5-lFY"/>
+                        <outlet property="secondImageV" destination="QbW-ht-RqX" id="Ic8-R7-EMN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+        </scene>
+    </scenes>
+</document>
