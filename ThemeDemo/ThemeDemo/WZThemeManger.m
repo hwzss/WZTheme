@@ -75,6 +75,10 @@ static id _instacne = nil;
     self.defaultTheme = theme;
 }
 
+- (void)useDefultTheme{
+    self.appTheme = self.defaultTheme;
+}
+
 #pragma - mark 下载主题
 - (void)downloadThemeFrom:(NSString *)urlStr themeName:(NSString *)themeName
 {

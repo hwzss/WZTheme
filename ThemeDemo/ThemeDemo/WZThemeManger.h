@@ -34,6 +34,11 @@
 -(void)defaultThemeWithBunldeName:(NSString *)bundleName themeName:(NSString *)themeName;
 
 /**
+ 让App使用默认的主题
+ */
+- (void)useDefultTheme;
+
+/**
  通过给定主题资源链接前往下载主题
 
  @param urlStr 主题链接
