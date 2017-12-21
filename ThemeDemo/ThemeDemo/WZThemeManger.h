@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "WZTheme.h"
+#import "WZObjectShadow.h"
 
 @interface WZThemeManger : NSObject
 
@@ -39,4 +40,6 @@
  @param themeName 主题名称
  */
 -(void)downloadThemeFrom:(NSString *)urlStr themeName:(NSString *)themeName;
+
+@property (strong, nonatomic) NSMapTable *shadowCahces;
 @end

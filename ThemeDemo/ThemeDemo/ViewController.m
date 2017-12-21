@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UIImage+WZTheme.h"
+#import "UIImageView+WZTheme.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *aImageV;
@@ -18,14 +18,12 @@
 @implementation ViewController
 - (void)viewDidLoad {
     [super viewDidLoad];
-    NSString *bundlePath = [NSBundle mainBundle].resourcePath;
-    NSString *defaultBundlePath = [bundlePath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@.bundle",@"main"]];
-    NSBundle *imageBundle = [NSBundle bundleWithPath:defaultBundlePath];
-    NSString *imagePath = [imageBundle pathForResource:@"电费@3x" ofType:@"png"];
     
+    NSPointerArray *arrs = [NSPointerArray arr]
     
-    self.aImageV.image = [UIImage wz_themeImageName:@"电费@3x"];
-    self.secondImageV.image = [UIImage wz_themeImageName:@"主题云钥匙选中状态@3x"];
+    [self.aImageV wz_setImageWithName:@"电费@3x"];
+    [self.secondImageV wz_setImageWithName:@"主题云钥匙选中状态@3x"];
+
 }
 
 

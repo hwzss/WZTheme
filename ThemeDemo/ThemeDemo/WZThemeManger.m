@@ -9,6 +9,7 @@
 #import "WZThemeManger.h"
 #import "WZThemeDownloader.h"
 
+
 static id _instacne = nil;
 @interface WZThemeManger ()
 
@@ -16,10 +17,14 @@ static id _instacne = nil;
  默认的主题，当没有可使用的主题包使用时使用默认的主题
  */
 @property (strong, nonatomic) WZTheme *defaultTheme;
+
+
 @end
 
 @implementation WZThemeManger
 @synthesize appTheme = _appTheme;
+
+#pragma -mark getter setter
 - (WZTheme *)appTheme
 {
     if (!_appTheme)
@@ -37,9 +42,19 @@ static id _instacne = nil;
     _appTheme = appTheme;
     // TODO: 添加自动更新更新所有使用了主题方式的UI
 
-    //更新缓存中正在使用的主题未当前缓存
+    //更新缓存中正在使用的主题为当前缓存
     [self cacheTheme:appTheme];
+    //刷新界面
+    [self updaterAllShadowUI];
 }
+
+-(NSMapTable *)shadowCahces{
+    if (!_shadowCahces) {
+        _shadowCahces = [NSMapTable weakToStrongObjectsMapTable];
+    }
+    return _shadowCahces;
+}
+#pragma -mark method
 
 + (instancetype)manger
 {
@@ -91,6 +106,12 @@ static id _instacne = nil;
                            }];
 }
 
+#pragma -mark 下载了新主题需要，让影子对象重新执行下设置主题属性，比如重新设置图片
+- (void)updaterAllShadowUI{
+    [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(WZObjectShadow *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        [obj doShadowOpreation];
+    }];
+}
 // FIXME: 主题信息的存取应该使用数据库的方式
 #pragma - mark 保存到本地数据库
 - (WZTheme *)fetchAppThemeUsed
