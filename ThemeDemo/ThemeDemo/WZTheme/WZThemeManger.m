@@ -9,8 +9,7 @@
 #import "WZThemeManger.h"
 #import "WZThemeDownloader.h"
 
-
-static id _instacne = nil;
+static id _instacne;
 @interface WZThemeManger ()
 
 /**

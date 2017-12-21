@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E48A26C1FEBFEF4003B7543 /* WZThemeDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A25F1FEBFEF4003B7543 /* WZThemeDownloader.m */; };
+		7E48A26D1FEBFEF4003B7543 /* WZObjectShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2621FEBFEF4003B7543 /* WZObjectShadow.m */; };
+		7E48A26E1FEBFEF4003B7543 /* UIImage+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2651FEBFEF4003B7543 /* UIImage+WZTheme.m */; };
+		7E48A26F1FEBFEF4003B7543 /* UIImageView+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2671FEBFEF4003B7543 /* UIImageView+WZTheme.m */; };
+		7E48A2701FEBFEF4003B7543 /* WZThemeManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2691FEBFEF4003B7543 /* WZThemeManger.m */; };
+		7E48A2761FEBFF30003B7543 /* WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2731FEBFF30003B7543 /* WZTheme.m */; };
+		7E48A2771FEBFF30003B7543 /* WZThemeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2751FEBFF30003B7543 /* WZThemeCache.m */; };
 		7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1CE1FEA036000F59EE3 /* main.m */; };
 		7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D11FEA036000F59EE3 /* AppDelegate.m */; };
 		7EB6E1D51FEA036000F59EE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D41FEA036000F59EE3 /* ViewController.m */; };
@@ -15,15 +22,8 @@
 		7EB6E1DD1FEA036000F59EE3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6E1DB1FEA036000F59EE3 /* LaunchScreen.storyboard */; };
 		7EB6E1E81FEA036000F59EE3 /* ThemeDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1E71FEA036000F59EE3 /* ThemeDemoTests.m */; };
 		7EB6E1F31FEA036000F59EE3 /* ThemeDemoUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1F21FEA036000F59EE3 /* ThemeDemoUITests.m */; };
-		7EB6E2051FEA063900F59EE3 /* WZThemeDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E2041FEA063900F59EE3 /* WZThemeDownloader.m */; };
-		7EB6E2081FEA0F0E00F59EE3 /* WZThemeCache.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E2071FEA0F0E00F59EE3 /* WZThemeCache.m */; };
-		7EB6E20B1FEA10EF00F59EE3 /* WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E20A1FEA10EF00F59EE3 /* WZTheme.m */; };
-		7EB6E20E1FEA2F5A00F59EE3 /* UIImage+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E20D1FEA2F5A00F59EE3 /* UIImage+WZTheme.m */; };
-		7EB6E2111FEA359200F59EE3 /* WZThemeManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E2101FEA359200F59EE3 /* WZThemeManger.m */; };
 		7EB6E2131FEA476E00F59EE3 /* main.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 7EB6E2121FEA476E00F59EE3 /* main.bundle */; };
 		7EB6E2151FEA667000F59EE3 /* Class_WZTheme_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E2141FEA667000F59EE3 /* Class_WZTheme_Test.m */; };
-		7EB6E21B1FEA9AD000F59EE3 /* WZObjectShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E21A1FEA9AD000F59EE3 /* WZObjectShadow.m */; };
-		7EDA982A1FEB48A300594AAF /* UIImageView+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA98291FEB48A300594AAF /* UIImageView+WZTheme.m */; };
 		7EDA982C1FEB4EC400594AAF /* Cass_WZObjectShadow_Test.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EDA982B1FEB4EC400594AAF /* Cass_WZObjectShadow_Test.m */; };
 		DC7672F05ADF442CA411C412 /* libPods-ThemeDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6761806841B12A0E6AD33C9 /* libPods-ThemeDemo.a */; };
 /* End PBXBuildFile section */
@@ -48,6 +48,20 @@
 /* Begin PBXFileReference section */
 		4DD24301DC58CE69A70AFE23 /* Pods-ThemeDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThemeDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo.debug.xcconfig"; sourceTree = "<group>"; };
 		531316ACC2DC2A8BC026B9D1 /* Pods-ThemeDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ThemeDemo.release.xcconfig"; path = "Pods/Target Support Files/Pods-ThemeDemo/Pods-ThemeDemo.release.xcconfig"; sourceTree = "<group>"; };
+		7E48A25E1FEBFEF4003B7543 /* WZThemeDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThemeDownloader.h; sourceTree = "<group>"; };
+		7E48A25F1FEBFEF4003B7543 /* WZThemeDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThemeDownloader.m; sourceTree = "<group>"; };
+		7E48A2611FEBFEF4003B7543 /* WZObjectShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZObjectShadow.h; sourceTree = "<group>"; };
+		7E48A2621FEBFEF4003B7543 /* WZObjectShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZObjectShadow.m; sourceTree = "<group>"; };
+		7E48A2641FEBFEF4003B7543 /* UIImage+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZTheme.h"; sourceTree = "<group>"; };
+		7E48A2651FEBFEF4003B7543 /* UIImage+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WZTheme.m"; sourceTree = "<group>"; };
+		7E48A2661FEBFEF4003B7543 /* UIImageView+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WZTheme.h"; sourceTree = "<group>"; };
+		7E48A2671FEBFEF4003B7543 /* UIImageView+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WZTheme.m"; sourceTree = "<group>"; };
+		7E48A2681FEBFEF4003B7543 /* WZThemeManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThemeManger.h; sourceTree = "<group>"; };
+		7E48A2691FEBFEF4003B7543 /* WZThemeManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThemeManger.m; sourceTree = "<group>"; };
+		7E48A2721FEBFF30003B7543 /* WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZTheme.h; sourceTree = "<group>"; };
+		7E48A2731FEBFF30003B7543 /* WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZTheme.m; sourceTree = "<group>"; };
+		7E48A2741FEBFF30003B7543 /* WZThemeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThemeCache.h; sourceTree = "<group>"; };
+		7E48A2751FEBFF30003B7543 /* WZThemeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThemeCache.m; sourceTree = "<group>"; };
 		7EB6E1CA1FEA036000F59EE3 /* ThemeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB6E1CE1FEA036000F59EE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB6E1D01FEA036000F59EE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -64,22 +78,8 @@
 		7EB6E1EE1FEA036000F59EE3 /* ThemeDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThemeDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB6E1F21FEA036000F59EE3 /* ThemeDemoUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ThemeDemoUITests.m; sourceTree = "<group>"; };
 		7EB6E1F41FEA036000F59EE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7EB6E2031FEA063900F59EE3 /* WZThemeDownloader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThemeDownloader.h; sourceTree = "<group>"; };
-		7EB6E2041FEA063900F59EE3 /* WZThemeDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThemeDownloader.m; sourceTree = "<group>"; };
-		7EB6E2061FEA0F0E00F59EE3 /* WZThemeCache.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThemeCache.h; sourceTree = "<group>"; };
-		7EB6E2071FEA0F0E00F59EE3 /* WZThemeCache.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThemeCache.m; sourceTree = "<group>"; };
-		7EB6E2091FEA10EF00F59EE3 /* WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = WZTheme.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		7EB6E20A1FEA10EF00F59EE3 /* WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WZTheme.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		7EB6E20C1FEA2F5A00F59EE3 /* UIImage+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZTheme.h"; sourceTree = "<group>"; };
-		7EB6E20D1FEA2F5A00F59EE3 /* UIImage+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "UIImage+WZTheme.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		7EB6E20F1FEA359200F59EE3 /* WZThemeManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThemeManger.h; sourceTree = "<group>"; };
-		7EB6E2101FEA359200F59EE3 /* WZThemeManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = WZThemeManger.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		7EB6E2121FEA476E00F59EE3 /* main.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = main.bundle; sourceTree = "<group>"; };
 		7EB6E2141FEA667000F59EE3 /* Class_WZTheme_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Class_WZTheme_Test.m; sourceTree = "<group>"; };
-		7EB6E2191FEA9AD000F59EE3 /* WZObjectShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZObjectShadow.h; sourceTree = "<group>"; };
-		7EB6E21A1FEA9AD000F59EE3 /* WZObjectShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZObjectShadow.m; sourceTree = "<group>"; };
-		7EDA98281FEB48A300594AAF /* UIImageView+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WZTheme.h"; sourceTree = "<group>"; };
-		7EDA98291FEB48A300594AAF /* UIImageView+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WZTheme.m"; sourceTree = "<group>"; };
 		7EDA982B1FEB4EC400594AAF /* Cass_WZObjectShadow_Test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Cass_WZObjectShadow_Test.m; sourceTree = "<group>"; };
 		C6761806841B12A0E6AD33C9 /* libPods-ThemeDemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ThemeDemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -118,6 +118,59 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		7E48A2571FEBFEF4003B7543 /* WZTheme */ = {
+			isa = PBXGroup;
+			children = (
+				7E48A2711FEBFF30003B7543 /* ThemeCache */,
+				7E48A25D1FEBFEF4003B7543 /* ThemeDownloader */,
+				7E48A2601FEBFEF4003B7543 /* ThemeShadow */,
+				7E48A2631FEBFEF4003B7543 /* UI */,
+				7E48A2681FEBFEF4003B7543 /* WZThemeManger.h */,
+				7E48A2691FEBFEF4003B7543 /* WZThemeManger.m */,
+			);
+			path = WZTheme;
+			sourceTree = "<group>";
+		};
+		7E48A25D1FEBFEF4003B7543 /* ThemeDownloader */ = {
+			isa = PBXGroup;
+			children = (
+				7E48A25E1FEBFEF4003B7543 /* WZThemeDownloader.h */,
+				7E48A25F1FEBFEF4003B7543 /* WZThemeDownloader.m */,
+			);
+			path = ThemeDownloader;
+			sourceTree = "<group>";
+		};
+		7E48A2601FEBFEF4003B7543 /* ThemeShadow */ = {
+			isa = PBXGroup;
+			children = (
+				7E48A2611FEBFEF4003B7543 /* WZObjectShadow.h */,
+				7E48A2621FEBFEF4003B7543 /* WZObjectShadow.m */,
+			);
+			path = ThemeShadow;
+			sourceTree = "<group>";
+		};
+		7E48A2631FEBFEF4003B7543 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				7E48A2641FEBFEF4003B7543 /* UIImage+WZTheme.h */,
+				7E48A2651FEBFEF4003B7543 /* UIImage+WZTheme.m */,
+				7E48A2661FEBFEF4003B7543 /* UIImageView+WZTheme.h */,
+				7E48A2671FEBFEF4003B7543 /* UIImageView+WZTheme.m */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		7E48A2711FEBFF30003B7543 /* ThemeCache */ = {
+			isa = PBXGroup;
+			children = (
+				7E48A2721FEBFF30003B7543 /* WZTheme.h */,
+				7E48A2731FEBFF30003B7543 /* WZTheme.m */,
+				7E48A2741FEBFF30003B7543 /* WZThemeCache.h */,
+				7E48A2751FEBFF30003B7543 /* WZThemeCache.m */,
+			);
+			path = ThemeCache;
+			sourceTree = "<group>";
+		};
 		7EB6E1C11FEA036000F59EE3 = {
 			isa = PBXGroup;
 			children = (
@@ -143,21 +196,8 @@
 		7EB6E1CC1FEA036000F59EE3 /* ThemeDemo */ = {
 			isa = PBXGroup;
 			children = (
-				7EDA98281FEB48A300594AAF /* UIImageView+WZTheme.h */,
-				7EDA98291FEB48A300594AAF /* UIImageView+WZTheme.m */,
-				7EB6E2191FEA9AD000F59EE3 /* WZObjectShadow.h */,
-				7EB6E21A1FEA9AD000F59EE3 /* WZObjectShadow.m */,
+				7E48A2571FEBFEF4003B7543 /* WZTheme */,
 				7EB6E2121FEA476E00F59EE3 /* main.bundle */,
-				7EB6E20F1FEA359200F59EE3 /* WZThemeManger.h */,
-				7EB6E2101FEA359200F59EE3 /* WZThemeManger.m */,
-				7EB6E20C1FEA2F5A00F59EE3 /* UIImage+WZTheme.h */,
-				7EB6E20D1FEA2F5A00F59EE3 /* UIImage+WZTheme.m */,
-				7EB6E2091FEA10EF00F59EE3 /* WZTheme.h */,
-				7EB6E20A1FEA10EF00F59EE3 /* WZTheme.m */,
-				7EB6E2061FEA0F0E00F59EE3 /* WZThemeCache.h */,
-				7EB6E2071FEA0F0E00F59EE3 /* WZThemeCache.m */,
-				7EB6E2031FEA063900F59EE3 /* WZThemeDownloader.h */,
-				7EB6E2041FEA063900F59EE3 /* WZThemeDownloader.m */,
 				7EB6E1D01FEA036000F59EE3 /* AppDelegate.h */,
 				7EB6E1D11FEA036000F59EE3 /* AppDelegate.m */,
 				7EB6E1D31FEA036000F59EE3 /* ViewController.h */,
@@ -399,16 +439,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EB6E2111FEA359200F59EE3 /* WZThemeManger.m in Sources */,
-				7EB6E20B1FEA10EF00F59EE3 /* WZTheme.m in Sources */,
-				7EB6E20E1FEA2F5A00F59EE3 /* UIImage+WZTheme.m in Sources */,
-				7EB6E2081FEA0F0E00F59EE3 /* WZThemeCache.m in Sources */,
+				7E48A2761FEBFF30003B7543 /* WZTheme.m in Sources */,
+				7E48A2701FEBFEF4003B7543 /* WZThemeManger.m in Sources */,
 				7EB6E1D51FEA036000F59EE3 /* ViewController.m in Sources */,
-				7EB6E2051FEA063900F59EE3 /* WZThemeDownloader.m in Sources */,
+				7E48A26D1FEBFEF4003B7543 /* WZObjectShadow.m in Sources */,
+				7E48A26E1FEBFEF4003B7543 /* UIImage+WZTheme.m in Sources */,
+				7E48A2771FEBFF30003B7543 /* WZThemeCache.m in Sources */,
+				7E48A26F1FEBFEF4003B7543 /* UIImageView+WZTheme.m in Sources */,
 				7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */,
 				7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */,
-				7EB6E21B1FEA9AD000F59EE3 /* WZObjectShadow.m in Sources */,
-				7EDA982A1FEB48A300594AAF /* UIImageView+WZTheme.m in Sources */,
+				7E48A26C1FEBFEF4003B7543 /* WZThemeDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
