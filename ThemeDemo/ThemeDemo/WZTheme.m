@@ -23,31 +23,38 @@
     return theme;
 }
 // TODO: 目前bundle的文件名称为固定值，后期可以尝试修改成任意值
--(NSString *)bundleName{
-    if (!_bundleName) {
+- (NSString *)bundleName
+{
+    if (!_bundleName)
+    {
         _bundleName = @"main";
     }
     return _bundleName;
 }
--(NSString *)themeBundlePath{
-    if (!_themeBundlePath) {
-        if (self.themeResourcePath) {
-            _themeBundlePath = [NSString stringWithFormat:@"%@/%@.bundle",self.themeResourcePath,self.bundleName];
+- (NSString *)themeBundlePath
+{
+    if (!_themeBundlePath)
+    {
+        if (self.themeResourcePath)
+        {
+            _themeBundlePath = [NSString stringWithFormat:@"%@/%@.bundle", self.themeResourcePath, self.bundleName];
         }
     }
     return _themeBundlePath;
 }
 - (NSString *)themeResourcePath
 {
-    if (!_themeResourcePath) {
+    if (!_themeResourcePath)
+    {
         _themeResourcePath = [[WZTheme themeCacheDir] stringByAppendingPathComponent:self.themeName];
     }
     return _themeResourcePath;
 }
 
--(BOOL)isAvailable{
-    NSBundle *bundle =  [NSBundle bundleWithPath:self.themeBundlePath];
-    return bundle?YES:NO;
+- (BOOL)isAvailable
+{
+    NSBundle *bundle = [NSBundle bundleWithPath:self.themeBundlePath];
+    return bundle ? YES : NO;
 }
 
 - (NSError *)resourceWriteToFile

@@ -10,13 +10,15 @@
 
 @implementation WZThemeDownloader
 
-+(void)downloadThemePachForm:(NSString *)downlaodLink completionHandler:(WZDownloaderSuccessBlock)completionHandler{
++ (void)downloadThemePachForm:(NSString *)downlaodLink completionHandler:(WZDownloaderSuccessBlock)completionHandler
+{
     NSURL *url = [NSURL URLWithString:downlaodLink];
     NSURLSessionConfiguration *defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:nil delegateQueue:[NSOperationQueue mainQueue]];
-    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url completionHandler:^(NSURL * _Nullable location, NSURLResponse * _Nullable response, NSError * _Nullable error) {
-        !completionHandler?:completionHandler(location,error);
-    }];
+    NSURLSessionDownloadTask *downloadTask = [session downloadTaskWithURL:url
+                                                        completionHandler:^(NSURL *_Nullable location, NSURLResponse *_Nullable response, NSError *_Nullable error) {
+                                                            !completionHandler ?: completionHandler(location, error);
+                                                        }];
     [downloadTask resume];
 }
 @end

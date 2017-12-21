@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "UIImageView+WZTheme.h"
+#import "WZThemeManger.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UIImageView *aImageV;
@@ -31,6 +32,10 @@
 
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [[WZThemeManger manger] useDefultTheme];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -15,48 +15,54 @@
 @property (assign, nonatomic) Class shadowClass;
 @property (assign, nonatomic) SEL shadowSel;
 
-// FIXME: 这里不应该用nsarray类型，应该用pointarray，需要支持可存nil数据
 @property (strong, nonatomic) NSPointerArray *values;
 
 @end
 
-static id WZ_VA_END;
+static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标示
 @implementation WZObjectShadow
 
-+ (id)args_end_flag{
-    if (!WZ_VA_END) {
-        WZ_VA_END = [[NSObject alloc]init];
++ (id)args_end_flag
+{
+    if (!WZ_VA_END)
+    {
+        WZ_VA_END = [[NSObject alloc] init];
     }
     return WZ_VA_END;
 }
-+ (instancetype)shadowWithId:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id )arg0,...{
++ (instancetype)shadowWithId:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...
+{
     WZObjectShadow *shadow = [[WZObjectShadow alloc] init];
     shadow.obShadow = obj;
     shadow.shadowClass = ob_class;
     shadow.shadowSel = sel;
-    [shadow.values addPointer:(__bridge void * _Nullable)(arg0)];
-    
+    [shadow.values addPointer:(__bridge void *_Nullable)(arg0)];
+
     va_list list;
     va_start(list, arg0);
-    while (YES) {
+    while (YES)
+    {
         id next_arg = va_arg(list, id);
-        if (next_arg == WZ_VA_END) {
+        if (next_arg == WZ_VA_END)
+        {
             break;
         }
-        [shadow.values addPointer:(__bridge void * _Nullable)(next_arg)];
+        [shadow.values addPointer:(__bridge void *_Nullable)(next_arg)];
     }
     va_end(list);
     return shadow;
 }
 
--(NSPointerArray *)values{
-    if (!_values) {
+- (NSPointerArray *) values
+{
+    if (!_values)
+    {
         _values = [NSPointerArray strongObjectsPointerArray];
     }
     return _values;
 }
 
-- (void) doShadowOpreation
+- (void)doShadowOpreation
 {
     if (!_obShadow || !_shadowSel)
     {
@@ -89,25 +95,25 @@ static id WZ_VA_END;
                 case 2:
                 {
                     void (*func)(id, SEL, id, id) = (void *) imp;
-                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0],[_values pointerAtIndex:1]);
+                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0], [_values pointerAtIndex:1]);
                 }
                 break;
                 case 3:
                 {
                     void (*func)(id, SEL, id, id, id) = (void *) imp;
-                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0],[_values pointerAtIndex:1], [_values pointerAtIndex:2]);
+                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0], [_values pointerAtIndex:1], [_values pointerAtIndex:2]);
                 }
-                    break;
+                break;
                 case 4:
                 {
                     void (*func)(id, SEL, id, id, id, id) = (void *) imp;
-                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0],[_values pointerAtIndex:1], [_values pointerAtIndex:2],[_values pointerAtIndex:3]);
+                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0], [_values pointerAtIndex:1], [_values pointerAtIndex:2], [_values pointerAtIndex:3]);
                 }
-                    break;
+                break;
 
                 default:
                     break;
-                    // TODO:这里目前就对3个参数以下的方法做了处理，如果有参数超过可以对这里进行更改添加条件
+                    // TODO:这里目前就对4个及4个以下参数个数的方法做了处理，如果有参数超过可以对这里进行更改添加条件
             }
             
         }

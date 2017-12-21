@@ -11,11 +11,12 @@
 
 @implementation UIImage (WZTheme)
 
-+(UIImage *)wz_themeImageName:(NSString *)imageName{
++ (UIImage *)wz_themeImageName:(NSString *)imageName
+{
     WZTheme *theme = [WZThemeManger manger].appTheme;
     NSBundle *imageBundle = [NSBundle bundleWithPath:theme.themeBundlePath];
     NSString *imagePath = [imageBundle pathForResource:imageName ofType:@"png"];
-    
+
     return [UIImage imageWithContentsOfFile:imagePath];
 }
 
