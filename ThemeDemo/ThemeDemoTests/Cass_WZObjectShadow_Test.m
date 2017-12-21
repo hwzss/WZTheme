@@ -10,8 +10,10 @@
 #import "WZObjectShadow.h"
 
 
+
 @interface Cass_WZObjectShadow_Test : XCTestCase
 
+@property (assign,nonatomic,getter=didAccpetedNil) BOOL accpetNil;
 @end
 
 @implementation Cass_WZObjectShadow_Test
@@ -25,11 +27,24 @@
     // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
+//ob3:(id )ob3 ob4:(id )ob4
+- (void)doneIfNil:(id)ob ob2:(id)ob2 ob3:(id )ob3 ob4:(id )ob4{
+
+    self.accpetNil = (!ob&&!ob3)?YES:NO;
+}
+#pragma -mark 测试创建shadow时args传nil是否有效
+- (void)testArgsNil{
+    WZObjectShadow *aShadow = [WZObjectShadow shadowWithId:self class:self.class sel:@selector(doneIfNil:ob2:ob3:ob4:) args:nil,@"哈哈",nil,@"哈哈2",wz_args_end];
+    self.accpetNil = NO;
+    [aShadow doShadowOpreation];
+    XCTAssertTrue(self.accpetNil,@"不为空说明没有接收nil");
+}
 - (void)testDoShadowOpreation{
     UIView *aView = [[UIView alloc]init];
     
     UIColor *color = [UIColor redColor];
-    WZObjectShadow *viewShadow = [WZObjectShadow shadowWithId:aView class:aView.class sel:@selector(setBackgroundColor:) values:@[color]];
+    
+    WZObjectShadow *viewShadow = [WZObjectShadow shadowWithId:aView class:aView.class sel:@selector(setBackgroundColor:) args:color,wz_args_end];
     
     [viewShadow doShadowOpreation];
     XCTAssertNotNil(aView.backgroundColor,@"不应该为空");
@@ -45,7 +60,7 @@
     __weak UIView *weakView = hostArr.firstObject;
     XCTAssertNotNil(weakView, @"aView不应该为nil");
     
-    WZObjectShadow *viewShadow = [WZObjectShadow shadowWithId:weakView class:[weakView class] sel:@selector(setBackgroundColor:) values:@[[UIColor whiteColor]]];
+    WZObjectShadow *viewShadow = [WZObjectShadow shadowWithId:weakView class:[weakView class] sel:@selector(setBackgroundColor:) args:[UIColor whiteColor],wz_args_end];
     
     [viewShadow doShadowOpreation];
     [hostArr removeLastObject];
