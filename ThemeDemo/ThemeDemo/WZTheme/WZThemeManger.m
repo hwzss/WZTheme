@@ -74,7 +74,7 @@ static id _instacne;
     self.defaultTheme = theme;
 }
 
-- (void)useDefultTheme{
+- (void)useDefaultTheme{
     self.appTheme = self.defaultTheme;
 }
 

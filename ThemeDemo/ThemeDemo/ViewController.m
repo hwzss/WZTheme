@@ -34,7 +34,7 @@
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {
-    [[WZThemeManger manger] useDefultTheme];
+    [[WZThemeManger manger] useDefaultTheme];
 }
 
 - (void)didReceiveMemoryWarning {
