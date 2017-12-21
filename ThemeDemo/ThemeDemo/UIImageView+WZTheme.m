@@ -14,7 +14,7 @@
 
 -(void)wz_setImageWithName:(NSString *)imageName{
     
-    WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:@selector(wz_setImageWithName:) values:@[imageName]];
+    WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:@selector(wz_setImageWithName:) args:imageName,wz_args_end];
     [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];
     
     [self setImage:[UIImage wz_themeImageName:imageName]];

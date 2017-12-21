@@ -16,20 +16,44 @@
 @property (assign, nonatomic) SEL shadowSel;
 
 // FIXME: 这里不应该用nsarray类型，应该用pointarray，需要支持可存nil数据
-@property (strong, nonatomic) NSArray *values;
+@property (strong, nonatomic) NSPointerArray *values;
 
 @end
 
+static id WZ_VA_END;
 @implementation WZObjectShadow
 
-+ (instancetype)shadowWithId:(id)obj class:(Class)ob_class sel:(SEL)sel values:(NSArray *)values
-{
++ (id)args_end_flag{
+    if (!WZ_VA_END) {
+        WZ_VA_END = [[NSObject alloc]init];
+    }
+    return WZ_VA_END;
+}
++ (instancetype)shadowWithId:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id )arg0,...{
     WZObjectShadow *shadow = [[WZObjectShadow alloc] init];
     shadow.obShadow = obj;
     shadow.shadowClass = ob_class;
     shadow.shadowSel = sel;
-    shadow.values = values;
+    [shadow.values addPointer:(__bridge void * _Nullable)(arg0)];
+    
+    va_list list;
+    va_start(list, arg0);
+    while (YES) {
+        id next_arg = va_arg(list, id);
+        if (next_arg == WZ_VA_END) {
+            break;
+        }
+        [shadow.values addPointer:(__bridge void * _Nullable)(next_arg)];
+    }
+    va_end(list);
     return shadow;
+}
+
+-(NSPointerArray *)values{
+    if (!_values) {
+        _values = [NSPointerArray strongObjectsPointerArray];
+    }
+    return _values;
 }
 
 - (void) doShadowOpreation
@@ -59,15 +83,27 @@
                 case 1:
                 {
                     void (*func)(id, SEL, id) = (void *) imp;
-                    func(_obShadow, _shadowSel, _values[0]);
+                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0]);
                 }
                 break;
                 case 2:
                 {
                     void (*func)(id, SEL, id, id) = (void *) imp;
-                    func(_obShadow, _shadowSel, _values[0], _values[1]);
+                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0],[_values pointerAtIndex:1]);
                 }
                 break;
+                case 3:
+                {
+                    void (*func)(id, SEL, id, id, id) = (void *) imp;
+                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0],[_values pointerAtIndex:1], [_values pointerAtIndex:2]);
+                }
+                    break;
+                case 4:
+                {
+                    void (*func)(id, SEL, id, id, id, id) = (void *) imp;
+                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0],[_values pointerAtIndex:1], [_values pointerAtIndex:2],[_values pointerAtIndex:3]);
+                }
+                    break;
 
                 default:
                     break;

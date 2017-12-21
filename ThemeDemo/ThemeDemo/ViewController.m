@@ -19,7 +19,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    NSPointerArray *arrs = [NSPointerArray arr]
+    
+    NSPointerArray *arrs = [NSPointerArray strongObjectsPointerArray];
+    [arrs addPointer:@"1"];
+    [arrs addPointer:nil];
+    
+    NSLog(@"count:%lu",(unsigned long)arrs.count);
     
     [self.aImageV wz_setImageWithName:@"电费@3x"];
     [self.secondImageV wz_setImageWithName:@"主题云钥匙选中状态@3x"];
