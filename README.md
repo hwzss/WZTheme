@@ -18,5 +18,5 @@
     [[WZThemeManger manger] downloadThemeFrom:@"https://github.com/hwzss/WZTheme/raw/master/theme.zip" themeName:@"github上新的主题"];
 ```
 
-最近刚弄这块代码，如果你刚好看到这块代码，有兴趣或者对这代码有什么好的优化方案或者更好的实现方法可以联系我，或者在issue里留言。
+最近刚弄这块代码，如果您刚好看到这块代码，有兴趣或者对这代码有什么好的优化方案或者更好的实现方法可以联系我，或者在issue里留言。
 
