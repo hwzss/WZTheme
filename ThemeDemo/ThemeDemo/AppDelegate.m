@@ -8,7 +8,7 @@
 
 #import "AppDelegate.h"
 #import "WZThemeManger.h"
-#import <CIM_HTTPTool.h>
+
 
 @interface AppDelegate ()
 
@@ -21,20 +21,8 @@
     
     [[WZThemeManger manger] defaultThemeWithBunldeName:@"main" themeName:@"默认主题"];
     
-//    [[WZThemeManger manger] downloadThemeFrom:@"http://182.105.146.245:8890/EstateService/uploadFile/image/APPtheme/year4.zip" themeName:@"新的主题"];
-    [CIM_HTTPTool CIM_POST_3:@"http://182.105.146.245:8890/EstateService/httpInterface/apptheme/getAppTheme" parameters:^(NSMutableDictionary *params) {
-        params[@"appType"]=@"IOS";
-    } success:^(id jsonData) {
-        NSDictionary *dict = (NSDictionary *)jsonData;
-        NSString *url = [dict objectForKey:@"url"];
-        NSString *themeName = [dict objectForKey:@"themeName"];
-        [[WZThemeManger manger] downloadThemeFrom:url themeName:themeName];
-    } failure:^(NSString *errorStr) {
- 
-        
-    } connectfailure:^(BOOL *isShowErrorAlert) {
-    
-    }];
+    [[WZThemeManger manger] downloadThemeFrom:@"https://github.com/hwzss/WZTheme/raw/master/theme.zip" themeName:@"github上新的主题"];
+
     return YES;
 }
 
