@@ -41,12 +41,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wjj-qn-hMG">
+                                <rect key="frame" x="137.5" y="183.5" width="100" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="PLm-xY-tyl"/>
+                                    <constraint firstAttribute="width" constant="100" id="WZw-we-9ah"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <state key="normal" title="我是按钮">
+                                    <color key="titleColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="dpV-p6-8Ks" firstAttribute="top" secondItem="wjj-qn-hMG" secondAttribute="bottom" constant="20" id="77A-ci-o99"/>
                             <constraint firstItem="QbW-ht-RqX" firstAttribute="top" secondItem="dpV-p6-8Ks" secondAttribute="bottom" constant="27.5" id="Arl-eB-iX9"/>
                             <constraint firstItem="bqh-rW-b8v" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Eef-LZ-Qj8"/>
                             <constraint firstItem="dpV-p6-8Ks" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="-60" id="FyT-xq-ufa"/>
+                            <constraint firstItem="wjj-qn-hMG" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="JB7-YL-xPD"/>
                             <constraint firstItem="QbW-ht-RqX" firstAttribute="width" secondItem="dpV-p6-8Ks" secondAttribute="width" id="LyT-TU-iEu"/>
                             <constraint firstItem="bqh-rW-b8v" firstAttribute="top" secondItem="QbW-ht-RqX" secondAttribute="bottom" constant="28" id="dMO-Rc-KwL"/>
                             <constraint firstItem="QbW-ht-RqX" firstAttribute="height" secondItem="dpV-p6-8Ks" secondAttribute="height" id="v9c-Kl-KhN"/>
@@ -55,13 +68,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="aBtn" destination="wjj-qn-hMG" id="K8U-bb-KVi"/>
                         <outlet property="aImageV" destination="dpV-p6-8Ks" id="zL8-m5-lFY"/>
                         <outlet property="secondImageV" destination="QbW-ht-RqX" id="Ic8-R7-EMN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="117.59999999999999" y="122.78860569715144"/>
+            <point key="canvasLocation" x="-198" y="57"/>
         </scene>
     </scenes>
 </document>

@@ -8,9 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
-typedef void(^WZDownloaderSuccessBlock)(NSURL * location, NSError *error);
+typedef void(^WZDownloaderCompleteBlock)(NSURL * location, NSError *error);
 
 @interface WZThemeDownloader : NSObject
 
-+(void)downloadThemePachForm:(NSString *)downlaodLink completionHandler:(WZDownloaderSuccessBlock )completionHandler;
+
+/**
+ 给定链接下载文件
+
+ @param downlaodLink 下载链接
+ @param completionHandler 成功回调，返回下载文件路径，
+ */
++(void)downloadThemePachForm:(NSString *)downlaodLink completionHandler:(WZDownloaderCompleteBlock )completionHandler;
 @end

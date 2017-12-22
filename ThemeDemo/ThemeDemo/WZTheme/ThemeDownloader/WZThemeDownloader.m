@@ -10,7 +10,7 @@
 
 @implementation WZThemeDownloader
 
-+ (void)downloadThemePachForm:(NSString *)downlaodLink completionHandler:(WZDownloaderSuccessBlock)completionHandler
++ (void)downloadThemePachForm:(NSString *)downlaodLink completionHandler:(WZDownloaderCompleteBlock)completionHandler
 {
     NSURL *url = [NSURL URLWithString:downlaodLink];
     NSURLSessionConfiguration *defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];

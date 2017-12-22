@@ -21,7 +21,7 @@
     
     [[WZThemeManger manger] defaultThemeWithBunldeName:@"main" themeName:@"默认主题"];
     
-    [[WZThemeManger manger] downloadThemeFrom:@"https://github.com/hwzss/WZTheme/raw/master/theme.zip" themeName:@"github上新的主题"];
+   
 
     return YES;
 }
