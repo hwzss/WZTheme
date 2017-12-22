@@ -24,7 +24,6 @@
  */
 +(instancetype)manger;
 
-
 /**
  设置默认的主题，其中包含主题默认的bundle文件
 
@@ -46,5 +45,8 @@
  */
 -(void)downloadThemeFrom:(NSString *)urlStr themeName:(NSString *)themeName;
 
+/**
+ 用于记录所有调用了主题的对象时的环境现场，已方便后面主题更新时，重新对现场进行执行，对UI进行重新赋值
+ */
 @property (strong, nonatomic) NSMapTable *shadowCahces;
 @end

@@ -10,7 +10,14 @@
 
 @interface WZTheme : NSObject
 
+/**
+ 主题名称，目前也可以看唯一标识
+ */
 @property (copy, nonatomic) NSString *themeName;
+
+/**
+ 下载后的主题文件路径
+ */
 @property (strong, nonatomic) NSURL *themeLoaction;
 
 /**
@@ -24,7 +31,7 @@
 @property (copy, nonatomic) NSString *themeBundlePath;
 
 /**
- 是否可用
+ 是否可用，当主题的文件路径不存在时该主题是不可用的
  */
 @property (assign, nonatomic, getter=isAvailable) BOOL available;
 
