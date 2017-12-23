@@ -9,12 +9,14 @@
 #import <Foundation/Foundation.h>
 
 #define wz_args_end [WZObjectShadow args_end_flag]
+#define wz_args_begin [WZObjectShadow args_begin_flag]
 
 @interface WZObjectShadow : NSObject
 
 + (instancetype)shadowWithId:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...;
 
 + (id)args_end_flag;
++ (id)args_begin_flag;
 
 - (void)doShadowOpreation;
 @end

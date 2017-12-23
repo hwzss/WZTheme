@@ -10,30 +10,11 @@
 #import "WZTheme.h"
 #import "WZObjectShadow.h"
 
-#define IS_NO_PASS_ARG(...) IS_NULL_STR(@#__VA_ARGS__)
-
-#define IS_NULL_STR(s) \
-({\
-BOOL value; \
-if ([s  isEqualToString:@""]) {\
-value = true;\
-}else{\
-value = false;\
-}\
-value;\
-})\
-
-
 
 #define Snapshoot(...) \
-if(IS_NO_PASS_ARG(__VA_ARGS__))\
-{\
-    WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:wz_args_end]; \
-    [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];\
-}else{\
-    WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:__VA_ARGS__, wz_args_end]; \
-    [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];\
-}
+WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:wz_args_begin,##__VA_ARGS__,wz_args_end]; \
+[[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self]
+
 
 
 

@@ -17,14 +17,7 @@
 
 - (void)wz_setImageWithName:(NSString *)imageName
 {
-    
-     if(({BOOL value; if ([@"" isEqualToString:@""]) {value = 1;}else{value = 0;}value;})){
-         WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:[WZObjectShadow args_end_flag]];
-         [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];
-     }else{
-         WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:, [WZObjectShadow args_end_flag]]; [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];};
-    Snapshoot();
-//    Snapshoot(imageName);
+    Snapshoot(imageName);
     [self setImage:[UIImage wz_themeImageName:imageName]];
 }
 @end

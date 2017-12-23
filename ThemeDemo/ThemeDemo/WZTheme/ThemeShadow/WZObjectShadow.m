@@ -19,9 +19,17 @@
 
 @end
 
+static id WZ_VA_BEGIN;
 static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标示
 @implementation WZObjectShadow
 
++ (id)args_begin_flag{
+    if (!WZ_VA_BEGIN)
+    {
+        WZ_VA_BEGIN = [[NSObject alloc] init];
+    }
+    return WZ_VA_BEGIN;
+}
 + (id)args_end_flag
 {
     if (!WZ_VA_END)
@@ -43,6 +51,9 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
     while (YES)
     {
         id next_arg = va_arg(list, id);
+        if (next_arg == WZ_VA_BEGIN){
+            continue;
+        }
         if (next_arg == WZ_VA_END)
         {
             break;
