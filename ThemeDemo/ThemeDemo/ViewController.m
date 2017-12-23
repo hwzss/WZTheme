@@ -20,18 +20,19 @@
 @end
 
 @implementation ViewController
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    
+
+    //通过主题的UI方法设置UI，这样在新的主题被设置时这些方法将自动被调用一次已重新设置主题
     [self.aImageV wz_setImageWithName:@"电费@3x"];
     [self.secondImageV wz_setImageWithName:@"主题云钥匙选中状态@3x"];
     [self.aBtn wz_setImageWithName:@"主题云钥匙选中状态@3x" forState:UIControlStateNormal];
-    
-    [self.view wz_setThemeBackgroundColorWithName:@"ThemeBackColor"];
-    
+
+    [self.view wz_setBackgroundColorWithName:@"ThemeBackColor"];
+
     //去网络上下载新的主题
     [[WZThemeManger manger] downloadThemeFrom:@"https://github.com/hwzss/WZTheme/raw/master/theme.zip" themeName:@"github上新的主题"];
-
 }
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event

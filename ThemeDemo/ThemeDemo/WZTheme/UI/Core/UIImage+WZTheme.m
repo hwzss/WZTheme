@@ -11,7 +11,7 @@
 
 @implementation UIImage (WZTheme)
 
-+ (UIImage *)wz_themeImageName:(NSString *)imageName
++ (UIImage *)imageThemeName:(NSString *)imageName
 {
     WZTheme *theme = [WZThemeManger manger].appTheme;
     NSBundle *imageBundle = [NSBundle bundleWithPath:theme.themeBundlePath];

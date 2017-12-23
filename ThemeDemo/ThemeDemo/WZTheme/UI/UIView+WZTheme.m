@@ -8,20 +8,15 @@
 
 #import "UIView+WZTheme.h"
 #import "WZThemeManger.h"
-#import "UIColor+CIM.h"
+#import "UIColor+WZTheme.h"
+
 
 @implementation UIView (WZTheme)
 
--(void)wz_setThemeBackgroundColorWithName:(NSString *)colorName{
+-(void)wz_setBackgroundColorWithName:(NSString *)colorName{
     
     Snapshoot(colorName);
     
-    WZTheme *theme = [WZThemeManger manger].appTheme;
-    NSBundle *themeBundle = [NSBundle bundleWithPath:theme.themeBundlePath];
-    NSString *dictPath = [themeBundle pathForResource:@"Theme" ofType:@"plist"];
-    NSDictionary *usersDic = [[NSDictionary alloc]initWithContentsOfFile:dictPath];
-    
-    UIColor *color = [UIColor CIM_colorWithHexString:[usersDic objectForKey:colorName]];
-    [self setBackgroundColor:color];
+    [self setBackgroundColor:[UIColor theme_colorName:colorName]];
 }
 @end

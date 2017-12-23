@@ -10,14 +10,11 @@
 #import "UIImage+WZTheme.h"
 #import "WZThemeManger.h"
 
-
-
-
 @implementation UIImageView (WZTheme)
 
 - (void)wz_setImageWithName:(NSString *)imageName
 {
     Snapshoot(imageName);
-    [self setImage:[UIImage wz_themeImageName:imageName]];
+    [self setImage:[UIImage imageThemeName:imageName]];
 }
 @end

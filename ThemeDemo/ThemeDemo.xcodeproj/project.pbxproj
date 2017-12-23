@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		7E48A26C1FEBFEF4003B7543 /* WZThemeDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A25F1FEBFEF4003B7543 /* WZThemeDownloader.m */; };
 		7E48A26D1FEBFEF4003B7543 /* WZObjectShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2621FEBFEF4003B7543 /* WZObjectShadow.m */; };
-		7E48A26E1FEBFEF4003B7543 /* UIImage+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2651FEBFEF4003B7543 /* UIImage+WZTheme.m */; };
 		7E48A26F1FEBFEF4003B7543 /* UIImageView+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2671FEBFEF4003B7543 /* UIImageView+WZTheme.m */; };
 		7E48A2701FEBFEF4003B7543 /* WZThemeManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2691FEBFEF4003B7543 /* WZThemeManger.m */; };
 		7E48A2761FEBFF30003B7543 /* WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2731FEBFF30003B7543 /* WZTheme.m */; };
@@ -17,6 +16,8 @@
 		7E48A2B91FECED1B003B7543 /* UIView+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2B81FECED1B003B7543 /* UIView+WZTheme.m */; };
 		7E48A2BC1FECF23A003B7543 /* UIColor+CIM.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2BB1FECF23A003B7543 /* UIColor+CIM.m */; };
 		7E48A2BF1FECF5BF003B7543 /* UIButton+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2BE1FECF5BF003B7543 /* UIButton+WZTheme.m */; };
+		7E48A2C91FEDF8F6003B7543 /* UIColor+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2C61FEDF8F6003B7543 /* UIColor+WZTheme.m */; };
+		7E48A2CA1FEDF8F6003B7543 /* UIImage+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2C81FEDF8F6003B7543 /* UIImage+WZTheme.m */; };
 		7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1CE1FEA036000F59EE3 /* main.m */; };
 		7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D11FEA036000F59EE3 /* AppDelegate.m */; };
 		7EB6E1D51FEA036000F59EE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D41FEA036000F59EE3 /* ViewController.m */; };
@@ -55,8 +56,6 @@
 		7E48A25F1FEBFEF4003B7543 /* WZThemeDownloader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThemeDownloader.m; sourceTree = "<group>"; };
 		7E48A2611FEBFEF4003B7543 /* WZObjectShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZObjectShadow.h; sourceTree = "<group>"; };
 		7E48A2621FEBFEF4003B7543 /* WZObjectShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZObjectShadow.m; sourceTree = "<group>"; };
-		7E48A2641FEBFEF4003B7543 /* UIImage+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZTheme.h"; sourceTree = "<group>"; };
-		7E48A2651FEBFEF4003B7543 /* UIImage+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WZTheme.m"; sourceTree = "<group>"; };
 		7E48A2661FEBFEF4003B7543 /* UIImageView+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImageView+WZTheme.h"; sourceTree = "<group>"; };
 		7E48A2671FEBFEF4003B7543 /* UIImageView+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImageView+WZTheme.m"; sourceTree = "<group>"; };
 		7E48A2681FEBFEF4003B7543 /* WZThemeManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZThemeManger.h; sourceTree = "<group>"; };
@@ -71,6 +70,10 @@
 		7E48A2BB1FECF23A003B7543 /* UIColor+CIM.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CIM.m"; sourceTree = "<group>"; };
 		7E48A2BD1FECF5BF003B7543 /* UIButton+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIButton+WZTheme.h"; sourceTree = "<group>"; };
 		7E48A2BE1FECF5BF003B7543 /* UIButton+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIButton+WZTheme.m"; sourceTree = "<group>"; };
+		7E48A2C51FEDF8F6003B7543 /* UIColor+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+WZTheme.h"; sourceTree = "<group>"; };
+		7E48A2C61FEDF8F6003B7543 /* UIColor+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WZTheme.m"; sourceTree = "<group>"; };
+		7E48A2C71FEDF8F6003B7543 /* UIImage+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZTheme.h"; sourceTree = "<group>"; };
+		7E48A2C81FEDF8F6003B7543 /* UIImage+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WZTheme.m"; sourceTree = "<group>"; };
 		7EB6E1CA1FEA036000F59EE3 /* ThemeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB6E1CE1FEA036000F59EE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB6E1D01FEA036000F59EE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -161,8 +164,7 @@
 		7E48A2631FEBFEF4003B7543 /* UI */ = {
 			isa = PBXGroup;
 			children = (
-				7E48A2641FEBFEF4003B7543 /* UIImage+WZTheme.h */,
-				7E48A2651FEBFEF4003B7543 /* UIImage+WZTheme.m */,
+				7E48A2C41FEDF8F6003B7543 /* Core */,
 				7E48A2661FEBFEF4003B7543 /* UIImageView+WZTheme.h */,
 				7E48A2671FEBFEF4003B7543 /* UIImageView+WZTheme.m */,
 				7E48A2B71FECED1A003B7543 /* UIView+WZTheme.h */,
@@ -182,6 +184,17 @@
 				7E48A2751FEBFF30003B7543 /* WZThemeCache.m */,
 			);
 			path = ThemeCache;
+			sourceTree = "<group>";
+		};
+		7E48A2C41FEDF8F6003B7543 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				7E48A2C51FEDF8F6003B7543 /* UIColor+WZTheme.h */,
+				7E48A2C61FEDF8F6003B7543 /* UIColor+WZTheme.m */,
+				7E48A2C71FEDF8F6003B7543 /* UIImage+WZTheme.h */,
+				7E48A2C81FEDF8F6003B7543 /* UIImage+WZTheme.m */,
+			);
+			path = Core;
 			sourceTree = "<group>";
 		};
 		7EB6E1C11FEA036000F59EE3 = {
@@ -461,11 +474,12 @@
 				7E48A26D1FEBFEF4003B7543 /* WZObjectShadow.m in Sources */,
 				7E48A2BF1FECF5BF003B7543 /* UIButton+WZTheme.m in Sources */,
 				7E48A2B91FECED1B003B7543 /* UIView+WZTheme.m in Sources */,
-				7E48A26E1FEBFEF4003B7543 /* UIImage+WZTheme.m in Sources */,
 				7E48A2771FEBFF30003B7543 /* WZThemeCache.m in Sources */,
+				7E48A2CA1FEDF8F6003B7543 /* UIImage+WZTheme.m in Sources */,
 				7E48A26F1FEBFEF4003B7543 /* UIImageView+WZTheme.m in Sources */,
 				7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */,
 				7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */,
+				7E48A2C91FEDF8F6003B7543 /* UIColor+WZTheme.m in Sources */,
 				7E48A26C1FEBFEF4003B7543 /* WZThemeDownloader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

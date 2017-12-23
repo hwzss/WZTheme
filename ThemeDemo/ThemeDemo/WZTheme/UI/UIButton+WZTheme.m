@@ -15,14 +15,14 @@
     
     Snapshoot(imageName,state);
     
-    [self setImage:[UIImage wz_themeImageName:imageName] forState:state];
+    [self setImage:[UIImage imageThemeName:imageName] forState:state];
 }
 
 -(void)wz_setBackgroundImageWithName:(NSString *)imageName forState:(UIControlState)state{
     
     Snapshoot(imageName,state);
     
-    [self setBackgroundImage:[UIImage wz_themeImageName:imageName] forState:state];
+    [self setBackgroundImage:[UIImage imageThemeName:imageName] forState:state];
     
 }
 

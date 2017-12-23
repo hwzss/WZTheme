@@ -10,5 +10,5 @@
 
 @interface UIImage (WZTheme)
 
-+(UIImage *)wz_themeImageName:(NSString *)imageName;
++(UIImage *)imageThemeName:(NSString *)imageName;
 @end
