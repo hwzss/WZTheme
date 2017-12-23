@@ -38,7 +38,7 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
     }
     return WZ_VA_END;
 }
-+ (instancetype)shadowWithId:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...
++ (instancetype)shadow:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...
 {
     WZObjectShadow *shadow = [[WZObjectShadow alloc] init];
     shadow.obShadow = obj;

@@ -13,7 +13,7 @@
 
 @interface WZObjectShadow : NSObject
 
-+ (instancetype)shadowWithId:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...;
++ (instancetype)shadow:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...;
 
 + (id)args_end_flag;
 + (id)args_begin_flag;

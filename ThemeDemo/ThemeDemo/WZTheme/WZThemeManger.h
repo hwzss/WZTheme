@@ -12,7 +12,7 @@
 
 
 #define Snapshoot(...) \
-WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:wz_args_begin,##__VA_ARGS__,wz_args_end]; \
+WZObjectShadow *shadow_of_self = [WZObjectShadow shadow:self class:self.class sel:_cmd args:wz_args_begin,##__VA_ARGS__,wz_args_end]; \
 [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self]
 
 
