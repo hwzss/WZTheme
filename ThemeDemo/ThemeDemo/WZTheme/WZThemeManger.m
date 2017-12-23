@@ -17,19 +17,18 @@ static id _instacne;
  */
 @property (strong, nonatomic) WZTheme *defaultTheme;
 
-
 @end
 
 @implementation WZThemeManger
 @synthesize appTheme = _appTheme;
 
-#pragma -mark getter setter
+#pragma - mark getter setter
 - (WZTheme *)appTheme
 {
     if (!_appTheme)
     {
         _appTheme = [self fetchAppThemeUsed];
-        if (!_appTheme||!_appTheme.isAvailable)
+        if (!_appTheme || !_appTheme.isAvailable)
         {
             _appTheme = self.defaultTheme;
         }
@@ -47,13 +46,15 @@ static id _instacne;
     [self updaterAllShadowUI];
 }
 
--(NSMapTable *)shadowCahces{
-    if (!_shadowCahces) {
+- (NSMapTable *)shadowCahces
+{
+    if (!_shadowCahces)
+    {
         _shadowCahces = [NSMapTable weakToStrongObjectsMapTable];
     }
     return _shadowCahces;
 }
-#pragma -mark method
+#pragma - mark method
 
 + (instancetype)manger
 {
@@ -74,7 +75,8 @@ static id _instacne;
     self.defaultTheme = theme;
 }
 
-- (void)useDefaultTheme{
+- (void)useDefaultTheme
+{
     self.appTheme = self.defaultTheme;
 }
 
@@ -109,9 +111,10 @@ static id _instacne;
                            }];
 }
 
-#pragma -mark 下载了新主题需要，让影子对象重新执行下设置主题属性，比如重新设置图片
-- (void)updaterAllShadowUI{
-    [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(WZObjectShadow *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+#pragma - mark 下载了新主题需要，让影子对象重新执行下设置主题属性，比如重新设置图片
+- (void)updaterAllShadowUI
+{
+    [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(WZObjectShadow *obj, NSUInteger idx, BOOL *_Nonnull stop) {
         [obj doShadowOpreation];
     }];
 }

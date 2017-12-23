@@ -10,5 +10,5 @@
 
 @interface WZThemeCache : NSObject
 
-+(NSError *)cacheThemeZipFileFrom:(NSString *)path toPath:(NSString *)destinationPath;
++ (NSError *)cacheThemeZipFileFrom:(NSString *)path toPath:(NSString *)destinationPath;
 @end

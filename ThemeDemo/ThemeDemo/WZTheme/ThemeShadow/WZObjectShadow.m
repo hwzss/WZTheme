@@ -50,7 +50,7 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
     va_start(list, arg0);
     while (YES)
     {
-        id next_arg = va_arg(list, id);
+        id next_arg = va_arg(list, id);// :FIXME 这里目前不支持基本类型的数据，所以最好能支持
         if (next_arg == WZ_VA_BEGIN){
             continue;
         }

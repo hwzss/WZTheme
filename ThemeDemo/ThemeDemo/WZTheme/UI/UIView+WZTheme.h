@@ -10,5 +10,5 @@
 
 @interface UIView (WZTheme)
 
--(void)wz_setBackgroundColorWithName:(NSString *)colorName;
+- (void)wz_setBackgroundColorWithName:(NSString *)colorName;
 @end

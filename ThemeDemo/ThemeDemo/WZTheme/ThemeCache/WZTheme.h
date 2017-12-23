@@ -35,7 +35,6 @@
  */
 @property (assign, nonatomic, getter=isAvailable) BOOL available;
 
-
 + (instancetype)themeName:(NSString *)themeName loaction:(NSURL *)loaction;
 
 /**

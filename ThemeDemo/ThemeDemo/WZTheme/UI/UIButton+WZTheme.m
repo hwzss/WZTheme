@@ -11,19 +11,16 @@
 #import "UIImage+WZTheme.h"
 @implementation UIButton (WZTheme)
 
--(void)wz_setImageWithName:(NSString *)imageName forState:(UIControlState)state{
-    
-    Snapshoot(imageName,state);
-    
+- (void)wz_setImageWithName:(NSString *)imageName forState:(UIControlState)state
+{
+    Snapshoot(imageName, state);
     [self setImage:[UIImage imageThemeName:imageName] forState:state];
 }
 
--(void)wz_setBackgroundImageWithName:(NSString *)imageName forState:(UIControlState)state{
-    
-    Snapshoot(imageName,state);
-    
+- (void)wz_setBackgroundImageWithName:(NSString *)imageName forState:(UIControlState)state
+{
+    Snapshoot(imageName, state);
     [self setBackgroundImage:[UIImage imageThemeName:imageName] forState:state];
-    
 }
 
 @end

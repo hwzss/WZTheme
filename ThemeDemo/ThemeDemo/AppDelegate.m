@@ -8,6 +8,8 @@
 
 #import "AppDelegate.h"
 #import "WZThemeManger.h"
+#import "ViewController.h"
+#import "UITabBarItem+WZTheme.h"
 
 
 @interface AppDelegate ()
@@ -21,7 +23,27 @@
     
     [[WZThemeManger manger] defaultThemeWithBunldeName:@"main" themeName:@"默认主题"];
     
+    UITabBarController *tabVc = [[UITabBarController alloc]init];
+    
+    ViewController *aVc = ({
+        UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
+        ViewController *aVc = [mainSB instantiateViewControllerWithIdentifier:@"viewController"];
+        aVc.tabBarItem.title = @"主题界面";
+        [aVc.tabBarItem wz_setImageWithName:@"主题云钥匙选中状态@3x" selectImageName:@"主题云钥匙选中状态@3x"];
+        aVc;
+    });
    
+    UIViewController  *aVC1 = ({
+        UIViewController  *aVC1 = [[UIViewController alloc]init];
+        aVC1.view.backgroundColor = [UIColor whiteColor];
+        aVC1.title = @"界面";
+        aVC1;
+    });
+    
+    [tabVc addChildViewController:aVc];
+    [tabVc addChildViewController:aVC1];
+    
+    self.window.rootViewController = tabVc;
 
     return YES;
 }

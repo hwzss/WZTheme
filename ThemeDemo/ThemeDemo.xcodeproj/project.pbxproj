@@ -18,6 +18,7 @@
 		7E48A2BF1FECF5BF003B7543 /* UIButton+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2BE1FECF5BF003B7543 /* UIButton+WZTheme.m */; };
 		7E48A2C91FEDF8F6003B7543 /* UIColor+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2C61FEDF8F6003B7543 /* UIColor+WZTheme.m */; };
 		7E48A2CA1FEDF8F6003B7543 /* UIImage+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2C81FEDF8F6003B7543 /* UIImage+WZTheme.m */; };
+		7E48A3171FEE7360003B7543 /* UITabBarItem+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A3161FEE7360003B7543 /* UITabBarItem+WZTheme.m */; };
 		7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1CE1FEA036000F59EE3 /* main.m */; };
 		7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D11FEA036000F59EE3 /* AppDelegate.m */; };
 		7EB6E1D51FEA036000F59EE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D41FEA036000F59EE3 /* ViewController.m */; };
@@ -74,6 +75,8 @@
 		7E48A2C61FEDF8F6003B7543 /* UIColor+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+WZTheme.m"; sourceTree = "<group>"; };
 		7E48A2C71FEDF8F6003B7543 /* UIImage+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+WZTheme.h"; sourceTree = "<group>"; };
 		7E48A2C81FEDF8F6003B7543 /* UIImage+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WZTheme.m"; sourceTree = "<group>"; };
+		7E48A3151FEE7360003B7543 /* UITabBarItem+WZTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITabBarItem+WZTheme.h"; path = "Core/UITabBarItem+WZTheme.h"; sourceTree = "<group>"; };
+		7E48A3161FEE7360003B7543 /* UITabBarItem+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITabBarItem+WZTheme.m"; path = "Core/UITabBarItem+WZTheme.m"; sourceTree = "<group>"; };
 		7EB6E1CA1FEA036000F59EE3 /* ThemeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB6E1CE1FEA036000F59EE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB6E1D01FEA036000F59EE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -171,6 +174,8 @@
 				7E48A2B81FECED1B003B7543 /* UIView+WZTheme.m */,
 				7E48A2BD1FECF5BF003B7543 /* UIButton+WZTheme.h */,
 				7E48A2BE1FECF5BF003B7543 /* UIButton+WZTheme.m */,
+				7E48A3151FEE7360003B7543 /* UITabBarItem+WZTheme.h */,
+				7E48A3161FEE7360003B7543 /* UITabBarItem+WZTheme.m */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -474,6 +479,7 @@
 				7E48A26D1FEBFEF4003B7543 /* WZObjectShadow.m in Sources */,
 				7E48A2BF1FECF5BF003B7543 /* UIButton+WZTheme.m in Sources */,
 				7E48A2B91FECED1B003B7543 /* UIView+WZTheme.m in Sources */,
+				7E48A3171FEE7360003B7543 /* UITabBarItem+WZTheme.m in Sources */,
 				7E48A2771FEBFF30003B7543 /* WZThemeCache.m in Sources */,
 				7E48A2CA1FEDF8F6003B7543 /* UIImage+WZTheme.m in Sources */,
 				7E48A26F1FEBFEF4003B7543 /* UIImageView+WZTheme.m in Sources */,

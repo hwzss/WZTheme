@@ -11,8 +11,9 @@
 
 @implementation WZThemeCache
 
-+(NSError *)cacheThemeZipFileFrom:(NSString *)path toPath:(NSString *)destinationPath{
-    NSError *error= nil;
++ (NSError *)cacheThemeZipFileFrom:(NSString *)path toPath:(NSString *)destinationPath
+{
+    NSError *error = nil;
     [SSZipArchive unzipFileAtPath:path toDestination:destinationPath overwrite:YES password:nil error:&error];
     return error;
 }
