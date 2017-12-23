@@ -44,7 +44,7 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
     shadow.obShadow = obj;
     shadow.shadowClass = ob_class;
     shadow.shadowSel = sel;
-    [shadow.values addPointer:(__bridge void *_Nullable)(arg0)];
+    
 
     va_list list;
     va_start(list, arg0);

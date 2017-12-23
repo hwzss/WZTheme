@@ -14,8 +14,7 @@
 
 -(void)wz_setThemeBackgroundColorWithName:(NSString *)colorName{
     
-    WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:@selector(wz_setThemeBackgroundColorWithName:) args:colorName, wz_args_end];
-    [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];
+    Snapshoot(colorName);
     
     WZTheme *theme = [WZThemeManger manger].appTheme;
     NSBundle *themeBundle = [NSBundle bundleWithPath:theme.themeBundlePath];

@@ -12,16 +12,15 @@
 @implementation UIButton (WZTheme)
 
 -(void)wz_setImageWithName:(NSString *)imageName forState:(UIControlState)state{
-    WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:imageName,state, wz_args_end];
-    [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];
+    
+    Snapshoot(imageName,state);
     
     [self setImage:[UIImage wz_themeImageName:imageName] forState:state];
 }
 
 -(void)wz_setBackgroundImageWithName:(NSString *)imageName forState:(UIControlState)state{
     
-    WZObjectShadow *shadow_of_self = [WZObjectShadow shadowWithId:self class:self.class sel:_cmd args:imageName,state, wz_args_end];
-    [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self];
+    Snapshoot(imageName,state);
     
     [self setBackgroundImage:[UIImage wz_themeImageName:imageName] forState:state];
     
