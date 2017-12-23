@@ -1,6 +1,9 @@
 ## WZTheme
 用于公司App节日主题更新代码
 
+效果图:
+![效果](https://github.com/hwzss/WZTheme/blob/master/demo.gif)
+
 ###使用方式
 
 先在自己项目里给个默认主题的资源文件，如demo里的main.bundle文件
