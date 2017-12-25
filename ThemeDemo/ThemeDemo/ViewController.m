@@ -28,6 +28,7 @@
     [self.aImageV wz_setImageWithName:@"电费@3x"];
     [self.secondImageV wz_setImageWithName:@"主题云钥匙选中状态@3x"];
     [self.aBtn wz_setImageWithName:@"主题云钥匙选中状态@3x" forState:UIControlStateNormal];
+      [self.aBtn wz_setImageWithName:@"主题云钥匙选中状态@3x" forState:UIControlStateNormal];
 
     [self.view wz_setBackgroundColorWithName:@"ThemeBackColor"];
 
