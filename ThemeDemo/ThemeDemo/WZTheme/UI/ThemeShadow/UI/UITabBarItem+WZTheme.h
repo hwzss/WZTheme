@@ -14,7 +14,7 @@
  设置tabbarItem的图片
 
  @param imageName normal状态下的图片
- @param selectImageName 选择状态下的图片，可传nil
+ @param selectedImageName 选择状态下的图片，可传nil
  */
 - (void)wz_setImageWithName:(NSString *)imageName selectedImageName:(NSString *)selectedImageName;
 
