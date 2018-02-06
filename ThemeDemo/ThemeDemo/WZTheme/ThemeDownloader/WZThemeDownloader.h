@@ -12,7 +12,6 @@ typedef void(^WZDownloaderCompleteBlock)(NSURL * location, NSError *error);
 
 @interface WZThemeDownloader : NSObject
 
-
 /**
  给定链接下载文件
 
@@ -20,4 +19,5 @@ typedef void(^WZDownloaderCompleteBlock)(NSURL * location, NSError *error);
  @param completionHandler 成功回调，返回下载文件路径，
  */
 +(void)downloadThemePachForm:(NSString *)downlaodLink completionHandler:(WZDownloaderCompleteBlock )completionHandler;
+
 @end

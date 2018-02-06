@@ -9,7 +9,10 @@
 #import "WZThemeManger.h"
 #import "WZThemeDownloader.h"
 
-static id _instacne;
+NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification = @"WZThemeMangerDidSetNewAppThemeNotification";
+
+static id _instance;
+
 @interface WZThemeManger ()
 
 /**
@@ -38,31 +41,21 @@ static id _instacne;
 - (void)setAppTheme:(WZTheme *)appTheme
 {
     _appTheme = appTheme;
-    // TODO: 添加自动更新更新所有使用了主题方式的UI
 
-    //更新缓存中正在使用的主题为当前缓存
+    //更新缓存中正在使用的主题为当前主题
     [self cacheTheme:appTheme];
-    //刷新界面
-    [self updaterAllShadowUI];
+
+    [[NSNotificationCenter defaultCenter] postNotificationName:WZThemeMangerDidSetNewAppThemeNotification object:nil];
 }
 
-- (NSMapTable *)shadowCahces
-{
-    if (!_shadowCahces)
-    {
-        _shadowCahces = [NSMapTable weakToStrongObjectsMapTable];
-    }
-    return _shadowCahces;
-}
 #pragma - mark method
-
 + (instancetype)manger
 {
-    if (!_instacne)
+    if (!_instance)
     {
-        _instacne = [[WZThemeManger alloc] init];
+        _instance = [[WZThemeManger alloc] init];
     }
-    return _instacne;
+    return _instance;
 }
 
 - (void)defaultThemeWithBunldeName:(NSString *)bundleName themeName:(NSString *)themeName
@@ -111,34 +104,27 @@ static id _instacne;
                            }];
 }
 
-#pragma - mark 下载了新主题需要，让影子对象重新执行下设置主题属性，比如重新设置图片
-- (void)updaterAllShadowUI
-{
-    [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(WZObjectShadow *obj, NSUInteger idx, BOOL *_Nonnull stop) {
-        [obj doShadowOpreation];
-    }];
-}
 // FIXME: 主题信息的存取应该使用数据库的方式
+static NSString *const CURRENT_THEME = @"current_theme";
+static NSString *const THEME_NAME = @"themeName";
 #pragma - mark 保存到本地数据库
 - (WZTheme *)fetchAppThemeUsed
 {
-    // TODO: 下面常量定义需修改成静态常量
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    NSDictionary *cacheDict = [userDefaults objectForKey:@"current_theme"];
+    NSDictionary *cacheDict = [userDefaults objectForKey:CURRENT_THEME];
     WZTheme *theme;
     if (cacheDict)
     {
         theme = [[WZTheme alloc] init];
-        theme.themeName = [cacheDict objectForKey:@"themeName"];
+        theme.themeName = [cacheDict objectForKey:THEME_NAME];
     }
     return theme;
 }
--(void)cacheTheme:(WZTheme *)theme{
-    NSDictionary *cacheDict = @{
-                                @"themeName":theme.themeName,
-                                };
+-(void)cacheTheme:(WZTheme *)theme
+{
+    NSDictionary *cacheDict = @{THEME_NAME:theme.themeName};
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-    [userDefaults setObject:cacheDict forKey:@"current_theme"];
+    [userDefaults setObject:cacheDict forKey:CURRENT_THEME];
 }
 
 

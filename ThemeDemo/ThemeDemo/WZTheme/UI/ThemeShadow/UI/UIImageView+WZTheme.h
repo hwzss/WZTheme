@@ -11,4 +11,5 @@
 @interface UIImageView (WZTheme)
 
 -(void)wz_setImageWithName:(NSString *)imageName;
+
 @end

@@ -7,7 +7,7 @@
 //
 
 #import "UIView+WZTheme.h"
-#import "WZThemeManger.h"
+#import "WZShadowManger.h"
 #import "UIColor+WZTheme.h"
 
 @implementation UIView (WZTheme)

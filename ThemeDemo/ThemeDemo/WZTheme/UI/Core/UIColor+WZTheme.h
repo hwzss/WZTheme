@@ -11,4 +11,5 @@
 @interface UIColor (WZTheme)
 
 +(UIColor *)theme_colorName:(NSString *)colorName;
+
 @end

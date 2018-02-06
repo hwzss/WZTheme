@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "WZTheme.h"
-#import "WZObjectShadow.h"
 
-#define Snapshoot(...)                                                                                                                      \
-    WZObjectShadow *shadow_of_self = [WZObjectShadow shadow:self class:self.class sel:_cmd args:wz_args_begin, ##__VA_ARGS__, wz_args_end]; \
-    [[WZThemeManger manger].shadowCahces setObject:shadow_of_self forKey:self]
+FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification;
 
 @interface WZThemeManger : NSObject
 
@@ -49,8 +46,4 @@
  */
 - (void)downloadThemeFrom:(NSString *)urlStr themeName:(NSString *)themeName;
 
-/**
- 用于记录所有调用了主题的对象时的环境现场，已方便后面主题更新时，重新对现场进行执行，对UI进行重新赋值
- */
-@property (strong, nonatomic) NSMapTable *shadowCahces;
 @end

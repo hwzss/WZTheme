@@ -11,14 +11,14 @@
 #import "WZThemeManger.h"
 @implementation UIColor (WZTheme)
 
-+(UIColor *)theme_colorName:(NSString *)colorName{
-    
++ (UIColor *)theme_colorName:(NSString *)colorName
+{
     WZTheme *theme = [WZThemeManger manger].appTheme;
     NSBundle *themeBundle = [NSBundle bundleWithPath:theme.themeBundlePath];
     NSString *dictPath = [themeBundle pathForResource:@"Theme" ofType:@"plist"];
-    NSDictionary *usersDic = [[NSDictionary alloc]initWithContentsOfFile:dictPath];
-    
-    UIColor *color = [UIColor CIM_colorWithHexString:[usersDic objectForKey:colorName]];
+    NSDictionary *customThemeInfo = [[NSDictionary alloc] initWithContentsOfFile:dictPath];
+    UIColor *color = [UIColor CIM_colorWithHexString:[customThemeInfo objectForKey:colorName]];
     return color;
 }
+
 @end
