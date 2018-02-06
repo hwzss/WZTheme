@@ -6,13 +6,16 @@
 //  Copyright © 2018年 qwkj. All rights reserved.
 //
 
-#import "WZShadowManger.h"
+#import "WZUIShadowManger.h"
 #import "WZObjectShadow.h"
 #import <UIKit/UIKit.h>
 
 FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification;
 
-@interface WZShadowManger ()
+@interface WZUIShadowManger ()
+{
+    dispatch_queue_t _queue;
+}
 
 /**
  用于记录所有调用了主题的对象时的环境现场，已方便后面主题更新时，重新对现场进行执行，对UI进行重新赋值
@@ -21,14 +24,14 @@ FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotific
 
 @end
 
-@implementation WZShadowManger
+@implementation WZUIShadowManger
 
 static id _instance;
 + (instancetype)manger
 {
     if (!_instance)
     {
-        _instance = [[WZShadowManger alloc] init];
+        _instance = [[WZUIShadowManger alloc] init];
     }
     return _instance;
 }
@@ -37,7 +40,8 @@ static id _instance;
     self = [super init];
     if (self)
     {
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(updateAllShadowUI) name:WZThemeMangerDidSetNewAppThemeNotification object:nil];
+        _queue = dispatch_queue_create("com.qwkj.theme.shadowManger.enumerate.sshadowCahces", DISPATCH_QUEUE_SERIAL);
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_WZThemeMangerDidSetNewAppTheme) name:WZThemeMangerDidSetNewAppThemeNotification object:nil];
     }
     return self;
 }
@@ -60,6 +64,12 @@ static id _instance;
 }
 
 #pragma - mark cache
+- (void)wz_cacheShadow:(WZObjectShadow *)shadow forKey:(id)key
+{
+    dispatch_async(_queue, ^{
+        [self cacheShadow:shadow forKey:key];
+    });
+}
 - (void)cacheShadow:(WZObjectShadow *)shadow forKey:(id)key
 {
     if (shadow.shadowClass == [UIButton class])
@@ -96,22 +106,28 @@ static id _instance;
 }
 
 #pragma - mark 下载了新主题需要，让影子对象重新执行下设置主题属性，比如重新设置图片
-- (void)updateAllShadowUI
+- (void)_WZThemeMangerDidSetNewAppTheme
 {
-    [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-
-        if ([obj isKindOfClass:[NSArray class]])
-        {
-            [obj enumerateObjectsUsingBlock:^(WZObjectShadow *shadow, NSUInteger idx, BOOL *_Nonnull stop) {
-                [shadow doShadowOpreation];
-            }];
-        }
-        else if ([obj isMemberOfClass:[WZObjectShadow class]])
-        {
-            [obj doShadowOpreation];
-        }
-    }];
+    dispatch_async(_queue, ^{
+        [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
+            
+            if ([obj isKindOfClass:[NSArray class]])
+            {
+                [obj enumerateObjectsUsingBlock:^(WZObjectShadow *shadow, NSUInteger idx, BOOL *_Nonnull stop) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                       [shadow doShadowOpreation];
+                    });
+                }];
+            }
+            else if ([obj isMemberOfClass:[WZObjectShadow class]])
+            {
+                dispatch_async(dispatch_get_main_queue(), ^{
+                    [obj doShadowOpreation];
+                });
+            }
+        }];
+       
+    });
 }
-
 
 @end

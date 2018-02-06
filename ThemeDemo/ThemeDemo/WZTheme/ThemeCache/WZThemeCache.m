@@ -14,7 +14,32 @@
 + (NSError *)cacheThemeZipFileFrom:(NSString *)path toPath:(NSString *)destinationPath
 {
     NSError *error = nil;
-    [SSZipArchive unzipFileAtPath:path toDestination:destinationPath overwrite:YES password:nil error:&error];
+    
+    int const TEST_NUM = 16;
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        for (int i = 0; i < TEST_NUM; i++) {
+            NSError *error;
+            [SSZipArchive unzipFileAtPath:path toDestination:destinationPath overwrite:YES password:nil error:&error];
+            if (!error) {
+                NSLog(@"successed in global_queue");
+            }
+            else {
+                NSLog(@"failed in global_queue,%@", [error description]);
+            }
+        }
+    });
+    for (int i = 0; i < TEST_NUM; i++) {
+        NSError *error;
+        [SSZipArchive unzipFileAtPath:path toDestination:destinationPath overwrite:YES password:nil error:&error];
+        if (!error) {
+            NSLog(@"successed in main queue");
+        }
+        else {
+            NSLog(@"failed in main queue,%@", [error description]);
+        }
+    }
+
+//    [SSZipArchive unzipFileAtPath:path toDestination:destinationPath overwrite:YES password:nil error:&error];
     return error;
 }
 

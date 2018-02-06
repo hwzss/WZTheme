@@ -7,7 +7,7 @@
 //
 
 #import "UITabBarItem+WZTheme.h"
-#import "WZShadowManger.h"
+#import "WZUIShadowManger.h"
 #import "UIImage+WZTheme.h"
 
 @implementation UITabBarItem (WZTheme)

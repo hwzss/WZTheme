@@ -7,7 +7,7 @@
 //
 
 #import "UIButton+WZTheme.h"
-#import "WZShadowManger.h"
+#import "WZUIShadowManger.h"
 #import "UIImage+WZTheme.h"
 
 @implementation UIButton (WZTheme)

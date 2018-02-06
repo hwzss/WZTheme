@@ -29,7 +29,7 @@
 		7EC0859320288D6E00018D2D /* UITabBarItem+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0858A20288D6E00018D2D /* UITabBarItem+WZTheme.m */; };
 		7EC0859420288D6E00018D2D /* UIView+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0858C20288D6E00018D2D /* UIView+WZTheme.m */; };
 		7EC0859520288D6E00018D2D /* WZObjectShadow.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0858E20288D6E00018D2D /* WZObjectShadow.m */; };
-		7EC0859620288D6E00018D2D /* WZShadowManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0859020288D6E00018D2D /* WZShadowManger.m */; };
+		7EC0859620288D6E00018D2D /* WZUIShadowManger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0859020288D6E00018D2D /* WZUIShadowManger.m */; };
 		7EC0859A2028933700018D2D /* WZThemeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC085992028933700018D2D /* WZThemeTests.m */; };
 		7EC0859C2028934400018D2D /* WZObjectShadowTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EC0859B2028934400018D2D /* WZObjectShadowTests.m */; };
 		DC7672F05ADF442CA411C412 /* libPods-ThemeDemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6761806841B12A0E6AD33C9 /* libPods-ThemeDemo.a */; };
@@ -97,8 +97,8 @@
 		7EC0858C20288D6E00018D2D /* UIView+WZTheme.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+WZTheme.m"; sourceTree = "<group>"; };
 		7EC0858D20288D6E00018D2D /* WZObjectShadow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZObjectShadow.h; sourceTree = "<group>"; };
 		7EC0858E20288D6E00018D2D /* WZObjectShadow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZObjectShadow.m; sourceTree = "<group>"; };
-		7EC0858F20288D6E00018D2D /* WZShadowManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZShadowManger.h; sourceTree = "<group>"; };
-		7EC0859020288D6E00018D2D /* WZShadowManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZShadowManger.m; sourceTree = "<group>"; };
+		7EC0858F20288D6E00018D2D /* WZUIShadowManger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WZUIShadowManger.h; sourceTree = "<group>"; };
+		7EC0859020288D6E00018D2D /* WZUIShadowManger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZUIShadowManger.m; sourceTree = "<group>"; };
 		7EC08597202891FC00018D2D /* WZShadowMangerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZShadowMangerTests.m; sourceTree = "<group>"; };
 		7EC085992028933700018D2D /* WZThemeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZThemeTests.m; sourceTree = "<group>"; };
 		7EC0859B2028934400018D2D /* WZObjectShadowTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WZObjectShadowTests.m; sourceTree = "<group>"; };
@@ -269,8 +269,8 @@
 				7EC0858420288D6E00018D2D /* UI */,
 				7EC0858D20288D6E00018D2D /* WZObjectShadow.h */,
 				7EC0858E20288D6E00018D2D /* WZObjectShadow.m */,
-				7EC0858F20288D6E00018D2D /* WZShadowManger.h */,
-				7EC0859020288D6E00018D2D /* WZShadowManger.m */,
+				7EC0858F20288D6E00018D2D /* WZUIShadowManger.h */,
+				7EC0859020288D6E00018D2D /* WZUIShadowManger.m */,
 			);
 			path = ThemeShadow;
 			sourceTree = "<group>";
@@ -503,7 +503,7 @@
 				7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */,
 				7EA6B0F7202945EC005CC4EF /* SecondViewController.m in Sources */,
 				7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */,
-				7EC0859620288D6E00018D2D /* WZShadowManger.m in Sources */,
+				7EC0859620288D6E00018D2D /* WZUIShadowManger.m in Sources */,
 				7E48A2C91FEDF8F6003B7543 /* UIColor+WZTheme.m in Sources */,
 				7E48A26C1FEBFEF4003B7543 /* WZThemeDownloader.m in Sources */,
 				7EC0859220288D6E00018D2D /* UIImageView+WZTheme.m in Sources */,

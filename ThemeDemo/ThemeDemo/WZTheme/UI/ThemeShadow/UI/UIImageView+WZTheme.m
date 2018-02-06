@@ -8,7 +8,7 @@
 
 #import "UIImageView+WZTheme.h"
 #import "UIImage+WZTheme.h"
-#import "WZShadowManger.h"
+#import "WZUIShadowManger.h"
 
 @implementation UIImageView (WZTheme)
 

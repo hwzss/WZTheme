@@ -11,11 +11,11 @@
 
 #define Snapshoot(...)                                                                                                                      \
     WZObjectShadow *shadow_of_self = [WZObjectShadow shadow:self class:self.class sel:_cmd args:wz_args_begin, ##__VA_ARGS__, wz_args_end]; \
-    [[WZShadowManger manger] cacheShadow:shadow_of_self forKey:self]
+    [[WZUIShadowManger manger] wz_cacheShadow:shadow_of_self forKey:self]
 
-@interface WZShadowManger : NSObject
+@interface WZUIShadowManger : NSObject
 
-- (void)cacheShadow:(WZObjectShadow *)shadow forKey:(id)key;
+- (void)wz_cacheShadow:(WZObjectShadow *)shadow forKey:(id)key;
 + (instancetype)manger;
 
 @end
