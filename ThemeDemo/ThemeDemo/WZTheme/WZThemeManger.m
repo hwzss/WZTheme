@@ -86,42 +86,11 @@ static id _instance;
     {
         return;
     }
-    static dispatch_queue_t _queue;
-    if (!_queue) {
-        _queue = dispatch_queue_create("com.qwkj.theme.unzipfile", DISPATCH_QUEUE_SERIAL);
-    }
     [WZThemeDownloader downloadThemePachForm:urlStr
                            completionHandler:^(NSURL *location, NSError *error) {
                                if (!error)
                                {
                                    WZTheme *aTheme = [WZTheme themeName:themeName loaction:location];
-//                                   dispatch_async(dispatch_get_main_queue(), ^{
-//                                       for (int i = 0; i < 6; i++) {
-//                                           NSError *cacheError = [aTheme resourceWriteToFile];
-//                                           if (!cacheError)
-//                                           {
-//                                               self.appTheme = aTheme;
-//                                               NSLog(@"线程新主题安装成功");
-//                                           }
-//                                           else
-//                                           {
-//                                               NSLog(@"线程主题解析失败,%@", [cacheError description]);
-//                                           }
-//                                       }
-//                                   });
-//
-//                                   for (int i = 0; i < 6; i++) {
-//                                       NSError *cacheError = [aTheme resourceWriteToFile];
-//                                       if (!cacheError)
-//                                       {
-//                                           self.appTheme = aTheme;
-//                                           NSLog(@"新主题安装成功");
-//                                       }
-//                                       else
-//                                       {
-//                                           NSLog(@"主题解析失败,%@", [cacheError description]);
-//                                       }
-//                                   }
                                    NSError *cacheError = [aTheme resourceWriteToFile];
                                    if (!cacheError)
                                    {
