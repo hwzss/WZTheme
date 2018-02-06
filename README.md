@@ -77,6 +77,16 @@
 2. 添加UITabBarItem设置背景图
 
 
+# demo代码
+
+```
+[self.aImageV wz_setImageWithName:@"电费@3x"];
+[self.secondImageV wz_setImageWithName:@"主题云钥匙选中状态@3x"];
+[self.aBtn wz_setImageWithName:@"主题云钥匙选中状态@3x" forState:UIControlStateNormal];
+[self.aBtn wz_setImageWithName:@"电费@3x" forState:UIControlStateSelected];
+[self.view wz_setBackgroundColorWithName:@"ThemeBackColor"];
+```
+
 # 效果图:
 
 
