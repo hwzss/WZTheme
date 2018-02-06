@@ -36,7 +36,7 @@
 
 - (void)initUI
 {
-    //通过主题的UI方法设置UI，这样在新的主题被设置时这些方法将自动被调用一次已重新设置主题
+    //通过主题的UI方法设置UI，这样在新的主题被设置时这些方法将自动被调用一次来显示新的主题
     [self.aImageV wz_setImageWithName:@"电费@3x"];
     [self.secondImageV wz_setImageWithName:@"主题云钥匙选中状态@3x"];
     [self.aBtn wz_setImageWithName:@"主题云钥匙选中状态@3x" forState:UIControlStateNormal];
