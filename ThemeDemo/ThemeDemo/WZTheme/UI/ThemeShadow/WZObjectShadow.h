@@ -13,11 +13,10 @@
 
 @interface WZObjectShadow : NSObject
 
-@property (weak, nonatomic) id obShadow;
-@property (assign, nonatomic) Class shadowClass;
-@property (assign, nonatomic) SEL shadowSel;
-
-@property (strong, nonatomic) NSPointerArray *values;
+@property (nonatomic, readonly, weak) id obShadow;
+@property (nonatomic, readonly, assign) Class shadowClass;
+@property (nonatomic, readonly, assign) SEL shadowSel;
+@property (nonatomic, strong) NSPointerArray *values;
 
 + (instancetype)shadow:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...;
 

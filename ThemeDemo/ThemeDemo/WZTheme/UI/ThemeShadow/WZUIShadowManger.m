@@ -10,11 +10,19 @@
 #import "WZObjectShadow.h"
 #import <UIKit/UIKit.h>
 
+
 FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification;
+
+static dispatch_queue_t _shaow_process_queue() {
+    return dispatch_queue_create("com.wztheme.wzuishadowmanger.shadow.process", DISPATCH_QUEUE_SERIAL);;
+}
+
+#define Lock() dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER)
+#define Unlock() dispatch_semaphore_signal(_lock)
 
 @interface WZUIShadowManger ()
 {
-    dispatch_queue_t _queue;
+    dispatch_semaphore_t _lock;
 }
 
 /**
@@ -40,7 +48,7 @@ static id _instance;
     self = [super init];
     if (self)
     {
-        _queue = dispatch_queue_create("com.qwkj.theme.shadowManger.enumerate.sshadowCahces", DISPATCH_QUEUE_SERIAL);
+        _lock = dispatch_semaphore_create(1);
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_WZThemeMangerDidSetNewAppTheme) name:WZThemeMangerDidSetNewAppThemeNotification object:nil];
     }
     return self;
@@ -66,7 +74,7 @@ static id _instance;
 #pragma - mark cache
 - (void)wz_cacheShadow:(WZObjectShadow *)shadow forKey:(id)key
 {
-    dispatch_async(_queue, ^{
+    dispatch_async(_shaow_process_queue(), ^{
         [self cacheShadow:shadow forKey:key];
     });
 }
@@ -96,19 +104,23 @@ static id _instance;
         else
         {
             shadows = [NSMutableArray arrayWithObject:shadow];
+            Lock();
             [self.shadowCahces setObject:shadows forKey:key];
+            Unlock();
         }
     }
     else
     {
+        Lock();
         [self.shadowCahces setObject:shadow forKey:key];
+        Unlock();
     }
 }
 
 #pragma - mark 下载了新主题需要，让影子对象重新执行下设置主题属性，比如重新设置图片
 - (void)_WZThemeMangerDidSetNewAppTheme
 {
-    dispatch_async(_queue, ^{
+    dispatch_async(_shaow_process_queue(), ^{
         [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
             
             if ([obj isKindOfClass:[NSArray class]])

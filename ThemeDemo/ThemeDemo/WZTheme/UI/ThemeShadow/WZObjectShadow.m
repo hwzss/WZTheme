@@ -31,10 +31,7 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
 }
 + (instancetype)shadow:(id)obj class:(Class)ob_class sel:(SEL)sel args:(id)arg0, ...
 {
-    WZObjectShadow *shadow = [[WZObjectShadow alloc] init];
-    shadow.obShadow = obj;
-    shadow.shadowClass = ob_class;
-    shadow.shadowSel = sel;
+    WZObjectShadow *shadow = [[WZObjectShadow alloc] initWithOb:obj class:ob_class sel:sel];
     
     va_list list;
     va_start(list, arg0);
@@ -52,6 +49,16 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
     }
     va_end(list);
     return shadow;
+}
+- (instancetype)initWithOb:(id )obj class:(Class)ob_class sel:(SEL)sel
+{
+    self = [super init];
+    if (self) {
+        _obShadow = obj;
+        _shadowClass = ob_class;
+        _shadowSel = sel;
+    }
+    return self;
 }
 
 - (NSPointerArray *) values
