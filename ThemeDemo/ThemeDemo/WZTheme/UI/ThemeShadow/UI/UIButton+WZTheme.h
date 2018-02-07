@@ -10,8 +10,14 @@
 
 @interface UIButton (WZTheme)
 
+/** 
+ 替代- (void)setImage:(nullable UIImage *)image forState:(UIControlState)state;
+ */
 - (void)wz_setImageWithName:(NSString *)imageName forState:(UIControlState)state;
 
+/**
+ 替代- (void)setBackgroundImage:(nullable UIImage *)image forState:(UIControlState)state;
+ */
 - (void)wz_setBackgroundImageWithName:(NSString *)imageName forState:(UIControlState)state;
 
 @end
