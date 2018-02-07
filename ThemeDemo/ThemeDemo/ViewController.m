@@ -41,6 +41,9 @@
     [self.secondImageV wz_setImageWithName:@"主题云钥匙选中状态@3x"];
     [self.aBtn wz_setImageWithName:@"主题云钥匙选中状态@3x" forState:UIControlStateNormal];
     [self.aBtn wz_setImageWithName:@"电费@3x" forState:UIControlStateSelected];
+    [self.aBtn wz_setImageWithName:@"主题云钥匙选中状态@3x" forState:UIControlStateHighlighted];
+    [self.aBtn wz_setImageWithName:@"电费@3x" forState:UIControlStateFocused];
+    [self.aBtn wz_setImageWithName:@"电费@3x" forState:UIControlStateApplication];
     [self.view wz_setBackgroundColorWithName:@"ThemeBackColor"];
     
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithTitle:@"push" style:UIBarButtonItemStylePlain target:self action:@selector(pushAction)];

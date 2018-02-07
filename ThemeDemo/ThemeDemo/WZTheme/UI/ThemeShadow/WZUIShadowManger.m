@@ -9,6 +9,7 @@
 #import "WZUIShadowManger.h"
 #import "WZObjectShadow.h"
 #import <UIKit/UIKit.h>
+#import <libkern/OSAtomic.h>
 
 
 FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification;
@@ -23,6 +24,7 @@ static dispatch_queue_t _shaow_process_queue() {
 @interface WZUIShadowManger ()
 {
     dispatch_semaphore_t _lock;
+    OSSpinLock _spinLock;
 }
 
 /**
@@ -49,6 +51,7 @@ static id _instance;
     if (self)
     {
         _lock = dispatch_semaphore_create(1);
+        _spinLock = = OS_SPINLOCK_INIT
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_WZThemeMangerDidSetNewAppTheme) name:WZThemeMangerDidSetNewAppThemeNotification object:nil];
     }
     return self;
@@ -85,6 +88,7 @@ static id _instance;
         NSMutableArray *shadows = [self.shadowCahces objectForKey:key];
         if (shadows && shadows.count > 0)
         {
+            OSSpinLockLock(&_spinLock);
             __block BOOL didExistShadow = NO;
             [shadows enumerateObjectsUsingBlock:^(WZObjectShadow *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
                 NSNumber *oldState = (NSNumber *) [[obj.values allObjects] lastObject];
@@ -100,6 +104,7 @@ static id _instance;
             {
                 [shadows addObject:shadow];
             }
+            OSSpinLockUnlock(&_spinLock);
         }
         else
         {
