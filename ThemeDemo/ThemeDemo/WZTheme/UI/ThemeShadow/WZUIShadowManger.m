@@ -73,10 +73,7 @@ static id _instance;
 
 - (NSMapTable *)shadowCahces {
     if (!_shadowCahces) {
-        _shadowCahces = [NSMapTable weakToStrongObjectsMapTable]; // FIXME: 可以的话需要替换weakToStrongObjectsMapTable
-        /*
-         Apple官方并不推荐weakToStrongObjectsMapTable，原因：The strong values for weak keys which get zeroed out continue to be maintained until the map table resizes itself. 同时自己测试多次使用key后key好像也不会立马消失
-         */
+        _shadowCahces = [NSMapTable weakToStrongObjectsMapTable];
     }
     return _shadowCahces;
 }

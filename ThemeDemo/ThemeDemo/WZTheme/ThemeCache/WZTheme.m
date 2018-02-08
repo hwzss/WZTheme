@@ -22,7 +22,7 @@
     theme.themeLoaction = loaction;
     return theme;
 }
-// TODO: 目前bundle的文件名称为固定值，后期可以尝试修改成任意值
+
 - (NSString *)bundleName
 {
     if (!_bundleName)

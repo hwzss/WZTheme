@@ -78,10 +78,6 @@ static id _instance;
 #pragma - mark 下载主题
 - (void)downloadThemeFrom:(NSString *)urlStr themeName:(NSString *)themeName
 {
-    /*
-     TODO: 后期应该加一个md5校验，防止同一个主题同一个文件每次都会去下载主题文件，前提也是需要先建数据库
-           目前先简单的比较当前正在使用的主题和需下载的主题是否一致
-     */
     if ([self.appTheme.themeName isEqualToString:themeName])
     {
         return;
@@ -106,7 +102,6 @@ static id _instance;
                            }];
 }
 
-// FIXME: 主题信息的存取应该使用数据库的方式
 static NSString *const CURRENT_THEME = @"current_theme";
 static NSString *const THEME_NAME = @"themeName";
 #pragma - mark 保存到本地数据库
