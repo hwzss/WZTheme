@@ -26,6 +26,7 @@
         UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         ViewController *aVc = [mainSB instantiateViewControllerWithIdentifier:@"viewController"];
         aVc.tabBarItem.title = @"主题界面";
+
         [aVc.tabBarItem wz_setNormalImageWithName:@"电费@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
         [aVc.tabBarItem wz_setSelectedImageWithName:@"主题云钥匙选中状态@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
         aVc;
@@ -35,8 +36,8 @@
         TableViewController *aVc = [[TableViewController alloc] init];
         aVc.view.backgroundColor = [UIColor whiteColor];
         aVc.title = @"列表";
-        [aVc.tabBarItem wz_setNormalImageWithName:@"主题云钥匙选中状态@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
-        [aVc.tabBarItem wz_setSelectedImageWithName:@"电费@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
+        [aVc.tabBarItem wz_setNormalImageWithName:@"电费@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
+        [aVc.tabBarItem wz_setSelectedImageWithName:@"主题云钥匙选中状态@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
         aVc;
     });
     

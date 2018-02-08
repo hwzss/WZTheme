@@ -89,18 +89,24 @@ static id _instance;
         reduceHodler();
     });
 }
+
 - (void)cacheShadow:(WZObjectShadow *)shadow forKey:(id)key {
-    // TODO: 待解决，同一个对象，不同的方法也应该存入
-    if (shadow.shadowClass == [UIButton class]) {
+    Class shadowClass = shadow.shadowClass;
+    if (shadowClass == [UIButton class] || shadowClass == [UITabBarItem class]) {
         NSMutableArray *shadows = [self.shadowCahces objectForKey:key];
         if (shadows && shadows.count > 0) {
             __block BOOL didExistShadow = NO;
             [shadows enumerateObjectsUsingBlock:^(WZObjectShadow *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-                NSNumber *oldState = (NSNumber *) [[obj.values allObjects] lastObject];
-                NSNumber *state = (NSNumber *) [[shadow.values allObjects] lastObject];
-                if (oldState.integerValue == state.integerValue) {
+                if (shadowClass == [UIButton class]) {
+                    NSNumber *oldState = (NSNumber *) [[obj.values allObjects] lastObject];
+                    NSNumber *state = (NSNumber *) [[shadow.values allObjects] lastObject];
+                    didExistShadow = (oldState.integerValue == state.integerValue);
+                }else if (shadowClass == [UITabBarItem class]) {
+                    didExistShadow = (obj.shadowSel == shadow.shadowSel);
+                }
+
+                if (didExistShadow) {
                     obj = shadow;
-                    didExistShadow = YES;
                     *stop = YES;
                 }
             }];
@@ -112,8 +118,7 @@ static id _instance;
             shadows = [NSMutableArray arrayWithObject:shadow];
             [self.shadowCahces setObject:shadows forKey:key];
         }
-    }
-    else {
+    }else {
         [self.shadowCahces setObject:shadow forKey:key];
     }
 }
