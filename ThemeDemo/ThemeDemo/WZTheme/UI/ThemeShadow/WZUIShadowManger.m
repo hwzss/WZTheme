@@ -20,7 +20,7 @@ static inline dispatch_queue_t _shaow_process_queue() {
     }
     return _queue;
 }
-static inline void releaseQueue(){
+static inline void _freeQueue(){
     _queue = nil;
 }
 
@@ -35,7 +35,7 @@ static void increaseHolder() {
 static void reduceHodler() {
     _Lock();
     --_queue_hold_num;
-    if (_queue_hold_num == 0) releaseQueue();
+    if (_queue_hold_num == 0) _freeQueue();
     _Unlock();
 }
 
