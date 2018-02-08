@@ -25,8 +25,8 @@
 #define _SPIN_LOCK_UNLOCK()  OSSpinLockUnlock(&_spinLock);
 #endif
 
-#define Lock() dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER)
-#define Unlock() dispatch_semaphore_signal(_lock)
+#define _Lock() dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER)
+#define _Unlock() dispatch_semaphore_signal(_lock)
 
 static dispatch_queue_t _shaow_process_queue() {
     return dispatch_queue_create("com.wztheme.wzuishadowmanger.shadow.process", DISPATCH_QUEUE_SERIAL);;
@@ -129,16 +129,16 @@ static id _instance;
         else
         {
             shadows = [NSMutableArray arrayWithObject:shadow];
-            Lock();
+            _Lock();
             [self.shadowCahces setObject:shadows forKey:key];
-            Unlock();
+            _Unlock();
         }
     }
     else
     {
-        Lock();
+        _Lock();
         [self.shadowCahces setObject:shadow forKey:key];
-        Unlock();
+        _Unlock();
     }
 }
 
