@@ -10,6 +10,7 @@
 #import "WZThemeManger.h"
 #import "ViewController.h"
 #import "UITabBarItem+WZTheme.h"
+#import "TableViewController.h"
 
 @interface AppDelegate ()
 
@@ -25,21 +26,23 @@
         UIStoryboard *mainSB = [UIStoryboard storyboardWithName:@"Main" bundle:[NSBundle mainBundle]];
         ViewController *aVc = [mainSB instantiateViewControllerWithIdentifier:@"viewController"];
         aVc.tabBarItem.title = @"主题界面";
-        [aVc.tabBarItem wz_setNormalImageWithName:@"主题云钥匙选中状态@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
+        [aVc.tabBarItem wz_setNormalImageWithName:@"电费@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
         [aVc.tabBarItem wz_setSelectedImageWithName:@"主题云钥匙选中状态@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
         aVc;
     });
 
-    UIViewController *emptyVc = ({
-        UIViewController *aVc = [[UIViewController alloc] init];
+    TableViewController *tableVc = ({
+        TableViewController *aVc = [[TableViewController alloc] init];
         aVc.view.backgroundColor = [UIColor whiteColor];
-        aVc.title = @"界面";
+        aVc.title = @"列表";
+        [aVc.tabBarItem wz_setNormalImageWithName:@"主题云钥匙选中状态@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
+        [aVc.tabBarItem wz_setSelectedImageWithName:@"电费@3x" renderingMode:UIImageRenderingModeAlwaysOriginal];
         aVc;
     });
     
     UITabBarController *tabVc = [[UITabBarController alloc] init];
     [tabVc addChildViewController:[[UINavigationController alloc] initWithRootViewController:themeVc]];
-    [tabVc addChildViewController:emptyVc];
+    [tabVc addChildViewController:[[UINavigationController alloc] initWithRootViewController:tableVc]];
 
     self.window.rootViewController = tabVc;
     return YES;

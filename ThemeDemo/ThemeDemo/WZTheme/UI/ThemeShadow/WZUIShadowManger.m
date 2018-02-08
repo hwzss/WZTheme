@@ -90,6 +90,7 @@ static id _instance;
     });
 }
 - (void)cacheShadow:(WZObjectShadow *)shadow forKey:(id)key {
+    // TODO: 待解决，同一个对象，不同的方法也应该存入
     if (shadow.shadowClass == [UIButton class]) {
         NSMutableArray *shadows = [self.shadowCahces objectForKey:key];
         if (shadows && shadows.count > 0) {
