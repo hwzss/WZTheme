@@ -32,7 +32,7 @@ static void increaseHolder() {
     _queue_hold_num++;
     _Unlock();
 }
-static void reduceHodler() {
+static void reduceHolder() {
     _Lock();
     --_queue_hold_num;
     if (_queue_hold_num == 0) _freeQueue();
@@ -86,7 +86,7 @@ static id _instance;
     increaseHolder();
     dispatch_async(_shaow_process_queue(), ^{
         [self cacheShadow:shadow forKey:key];
-        reduceHodler();
+        reduceHolder();
     });
 }
 
