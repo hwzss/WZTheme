@@ -11,8 +11,7 @@
 
 @implementation UIColor (WZTheme)
 
-+ (UIColor *)theme_colorName:(NSString *)colorName
-{
++ (UIColor *)theme_colorName:(NSString *)colorName {
     WZTheme *theme = [WZThemeManger manger].appTheme;
     NSBundle *themeBundle = [NSBundle bundleWithPath:theme.themeBundlePath];
     NSString *dictPath = [themeBundle pathForResource:@"Theme" ofType:@"plist"];
@@ -21,28 +20,17 @@
     return color;
 }
 
-+ (UIColor *)theme_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha
-{
++ (UIColor *)theme_colorWithHexString:(NSString *)color alpha:(CGFloat)alpha {
     NSString *cString = [[color stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] uppercaseString];
+    if ([cString length] < 6) return [UIColor clearColor];
     
-    if ([cString length] < 6)
-    {
-        return [UIColor clearColor];
-    }
-    
-    if ([cString hasPrefix:@"0X"])
-    {
+    if ([cString hasPrefix:@"0X"]) {
         cString = [cString substringFromIndex:2];
     }
-    
-    if ([cString hasPrefix:@"#"])
-    {
+    if ([cString hasPrefix:@"#"]) {
         cString = [cString substringFromIndex:1];
     }
-    if ([cString length] != 6)
-    {
-        return [UIColor clearColor];
-    }
+    if ([cString length] != 6) return [UIColor clearColor];
     
     // Separate into r, g, b substrings
     NSRange range;

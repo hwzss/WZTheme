@@ -15,6 +15,9 @@
 		7E48A2CA1FEDF8F6003B7543 /* UIImage+WZTheme.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E48A2C81FEDF8F6003B7543 /* UIImage+WZTheme.m */; };
 		7EA6B0F7202945EC005CC4EF /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA6B0F5202945EC005CC4EF /* SecondViewController.m */; };
 		7EA6B0F8202945EC005CC4EF /* SecondViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA6B0F6202945EC005CC4EF /* SecondViewController.xib */; };
+		7EA6B12D202C39F1005CC4EF /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA6B12C202C39F0005CC4EF /* TableViewController.m */; };
+		7EA6B131202C3A47005CC4EF /* TableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EA6B12F202C3A47005CC4EF /* TableViewCell.m */; };
+		7EA6B132202C3A47005CC4EF /* TableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7EA6B130202C3A47005CC4EF /* TableViewCell.xib */; };
 		7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1CE1FEA036000F59EE3 /* main.m */; };
 		7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D11FEA036000F59EE3 /* AppDelegate.m */; };
 		7EB6E1D51FEA036000F59EE3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EB6E1D41FEA036000F59EE3 /* ViewController.m */; };
@@ -70,6 +73,11 @@
 		7EA6B0F4202945EC005CC4EF /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
 		7EA6B0F5202945EC005CC4EF /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 		7EA6B0F6202945EC005CC4EF /* SecondViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondViewController.xib; sourceTree = "<group>"; };
+		7EA6B12B202C39F0005CC4EF /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
+		7EA6B12C202C39F0005CC4EF /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
+		7EA6B12E202C3A47005CC4EF /* TableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewCell.h; sourceTree = "<group>"; };
+		7EA6B12F202C3A47005CC4EF /* TableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewCell.m; sourceTree = "<group>"; };
+		7EA6B130202C3A47005CC4EF /* TableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TableViewCell.xib; sourceTree = "<group>"; };
 		7EB6E1CA1FEA036000F59EE3 /* ThemeDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ThemeDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EB6E1CE1FEA036000F59EE3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EB6E1D01FEA036000F59EE3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -222,6 +230,11 @@
 				7EB6E1D11FEA036000F59EE3 /* AppDelegate.m */,
 				7EB6E1D31FEA036000F59EE3 /* ViewController.h */,
 				7EB6E1D41FEA036000F59EE3 /* ViewController.m */,
+				7EA6B12B202C39F0005CC4EF /* TableViewController.h */,
+				7EA6B12C202C39F0005CC4EF /* TableViewController.m */,
+				7EA6B12E202C3A47005CC4EF /* TableViewCell.h */,
+				7EA6B12F202C3A47005CC4EF /* TableViewCell.m */,
+				7EA6B130202C3A47005CC4EF /* TableViewCell.xib */,
 				7EA6B0F4202945EC005CC4EF /* SecondViewController.h */,
 				7EA6B0F5202945EC005CC4EF /* SecondViewController.m */,
 				7EA6B0F6202945EC005CC4EF /* SecondViewController.xib */,
@@ -412,6 +425,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7EB6E2131FEA476E00F59EE3 /* main.bundle in Resources */,
+				7EA6B132202C3A47005CC4EF /* TableViewCell.xib in Resources */,
 				7EB6E1DD1FEA036000F59EE3 /* LaunchScreen.storyboard in Resources */,
 				7EB6E1DA1FEA036000F59EE3 /* Assets.xcassets in Resources */,
 				7EB6E1D81FEA036000F59EE3 /* Main.storyboard in Resources */,
@@ -493,6 +507,7 @@
 			files = (
 				7E48A2761FEBFF30003B7543 /* WZTheme.m in Sources */,
 				7EC0859120288D6E00018D2D /* UIButton+WZTheme.m in Sources */,
+				7EA6B12D202C39F1005CC4EF /* TableViewController.m in Sources */,
 				7EC0859320288D6E00018D2D /* UITabBarItem+WZTheme.m in Sources */,
 				7E48A2701FEBFEF4003B7543 /* WZThemeManger.m in Sources */,
 				7EC0859520288D6E00018D2D /* WZObjectShadow.m in Sources */,
@@ -503,6 +518,7 @@
 				7EB6E1D21FEA036000F59EE3 /* AppDelegate.m in Sources */,
 				7EA6B0F7202945EC005CC4EF /* SecondViewController.m in Sources */,
 				7EB6E1CF1FEA036000F59EE3 /* main.m in Sources */,
+				7EA6B131202C3A47005CC4EF /* TableViewCell.m in Sources */,
 				7EC0859620288D6E00018D2D /* WZUIShadowManger.m in Sources */,
 				7E48A2C91FEDF8F6003B7543 /* UIColor+WZTheme.m in Sources */,
 				7E48A26C1FEBFEF4003B7543 /* WZThemeDownloader.m in Sources */,

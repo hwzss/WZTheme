@@ -20,7 +20,7 @@ static inline dispatch_queue_t _shaow_process_queue() {
     }
     return _queue;
 }
-static inline void releaseQueue(){
+static inline void _freeQueue(){
     _queue = nil;
 }
 
@@ -35,7 +35,7 @@ static void increaseHolder() {
 static void reduceHodler() {
     _Lock();
     --_queue_hold_num;
-    if (_queue_hold_num == 0) releaseQueue();
+    if (_queue_hold_num == 0) _freeQueue();
     _Unlock();
 }
 
@@ -86,17 +86,24 @@ static id _instance;
         reduceHodler();
     });
 }
+
 - (void)cacheShadow:(WZObjectShadow *)shadow forKey:(id)key {
-    if (shadow.shadowClass == [UIButton class]) {
+    Class shadowClass = shadow.shadowClass;
+    if (shadowClass == [UIButton class] || shadowClass == [UITabBarItem class]) {
         NSMutableArray *shadows = [self.shadowCahces objectForKey:key];
         if (shadows && shadows.count > 0) {
             __block BOOL didExistShadow = NO;
             [shadows enumerateObjectsUsingBlock:^(WZObjectShadow *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-                NSNumber *oldState = (NSNumber *) [[obj.values allObjects] lastObject];
-                NSNumber *state = (NSNumber *) [[shadow.values allObjects] lastObject];
-                if (oldState.integerValue == state.integerValue) {
+                if (shadowClass == [UIButton class]) {
+                    NSNumber *oldState = (NSNumber *) [[obj.values allObjects] lastObject];
+                    NSNumber *state = (NSNumber *) [[shadow.values allObjects] lastObject];
+                    didExistShadow = (oldState.integerValue == state.integerValue);
+                }else if (shadowClass == [UITabBarItem class]) {
+                    didExistShadow = (obj.shadowSel == shadow.shadowSel);
+                }
+
+                if (didExistShadow) {
                     obj = shadow;
-                    didExistShadow = YES;
                     *stop = YES;
                 }
             }];
@@ -108,8 +115,7 @@ static id _instance;
             shadows = [NSMutableArray arrayWithObject:shadow];
             [self.shadowCahces setObject:shadows forKey:key];
         }
-    }
-    else {
+    }else {
         [self.shadowCahces setObject:shadow forKey:key];
     }
 }
