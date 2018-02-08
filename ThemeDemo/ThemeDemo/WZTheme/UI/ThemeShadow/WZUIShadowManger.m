@@ -9,22 +9,39 @@
 #import "WZUIShadowManger.h"
 #import "WZObjectShadow.h"
 #import <UIKit/UIKit.h>
+
+#if __has_include(<libkern/OSAtomic.h>)
+#import <os/lock.h>
+#define _OS_UNFAIR_LOCK_ENABLED 1
+#else
 #import <libkern/OSAtomic.h>
+#endif
 
+#ifdef _OS_UNFAIR_LOCK_ENABLED
+#define _SPIN_LOCK_LOCK()  os_unfair_lock_lock(&_spinLock);
+#define _SPIN_LOCK_UNLOCK()  os_unfair_lock_unlock(&_spinLock);
+#else
+#define SPIN_LOCK()  OSSpinLockLock(&_spinLock);
+#define _SPIN_LOCK_UNLOCK()  OSSpinLockUnlock(&_spinLock);
+#endif
 
-FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification;
+#define Lock() dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER)
+#define Unlock() dispatch_semaphore_signal(_lock)
 
 static dispatch_queue_t _shaow_process_queue() {
     return dispatch_queue_create("com.wztheme.wzuishadowmanger.shadow.process", DISPATCH_QUEUE_SERIAL);;
 }
 
-#define Lock() dispatch_semaphore_wait(_lock, DISPATCH_TIME_FOREVER)
-#define Unlock() dispatch_semaphore_signal(_lock)
+FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification;
 
 @interface WZUIShadowManger ()
 {
     dispatch_semaphore_t _lock;
+#ifdef _OS_UNFAIR_LOCK_ENABLED
+    os_unfair_lock _spinLock;
+#else
     OSSpinLock _spinLock;
+#endif
 }
 
 /**
@@ -51,7 +68,11 @@ static id _instance;
     if (self)
     {
         _lock = dispatch_semaphore_create(1);
-        _spinLock = = OS_SPINLOCK_INIT
+#ifdef _OS_UNFAIR_LOCK_ENABLED
+        _spinLock = OS_UNFAIR_LOCK_INIT;
+#else
+        _spinLock = OS_SPINLOCK_INIT;
+#endif
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_WZThemeMangerDidSetNewAppTheme) name:WZThemeMangerDidSetNewAppThemeNotification object:nil];
     }
     return self;
@@ -66,7 +87,6 @@ static id _instance;
     if (!_shadowCahces)
     {
         _shadowCahces = [NSMapTable weakToStrongObjectsMapTable]; // FIXME: 可以的话需要替换weakToStrongObjectsMapTable
-
         /*
          Apple官方并不推荐weakToStrongObjectsMapTable，原因：The strong values for weak keys which get zeroed out continue to be maintained until the map table resizes itself. 同时自己测试多次使用key后key好像也不会立马消失
          */
@@ -88,7 +108,7 @@ static id _instance;
         NSMutableArray *shadows = [self.shadowCahces objectForKey:key];
         if (shadows && shadows.count > 0)
         {
-            OSSpinLockLock(&_spinLock);
+            _SPIN_LOCK_LOCK();
             __block BOOL didExistShadow = NO;
             [shadows enumerateObjectsUsingBlock:^(WZObjectShadow *_Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
                 NSNumber *oldState = (NSNumber *) [[obj.values allObjects] lastObject];
@@ -104,7 +124,7 @@ static id _instance;
             {
                 [shadows addObject:shadow];
             }
-            OSSpinLockUnlock(&_spinLock);
+            _SPIN_LOCK_UNLOCK()
         }
         else
         {
@@ -127,7 +147,6 @@ static id _instance;
 {
     dispatch_async(_shaow_process_queue(), ^{
         [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
-            
             if ([obj isKindOfClass:[NSArray class]])
             {
                 [obj enumerateObjectsUsingBlock:^(WZObjectShadow *shadow, NSUInteger idx, BOOL *_Nonnull stop) {
