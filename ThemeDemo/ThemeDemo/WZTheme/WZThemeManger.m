@@ -122,7 +122,7 @@ static NSString *const THEME_NAME = @"themeName";
     NSDictionary *cacheDict = @{THEME_NAME:theme.themeName};
     NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
     [userDefaults setObject:cacheDict forKey:CURRENT_THEME];
+    [userDefaults synchronize];
 }
-
 
 @end

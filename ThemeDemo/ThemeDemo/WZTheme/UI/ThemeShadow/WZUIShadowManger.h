@@ -14,6 +14,10 @@
     [[WZUIShadowManger manger] wz_cacheShadow:shadow_of_self forKey:self]
 
 @interface WZUIShadowManger : NSObject
+/**
+ 默认为YES,更新UI的操作放在RunLoop的kCFRunLoopDefaultMode模式上的，如果设置为NO的话将NSRunLoopCommonModes下工作
+ */
+@property (assign) BOOL delay;
 
 - (void)wz_cacheShadow:(WZObjectShadow *)shadow forKey:(id)key;
 + (instancetype)manger;

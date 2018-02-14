@@ -20,7 +20,7 @@ static inline dispatch_queue_t _shaow_process_queue() {
     }
     return _queue;
 }
-static inline void _freeQueue(){
+static inline void _freeQueue() {
     _queue = nil;
 }
 
@@ -61,6 +61,7 @@ static id _instance;
     self = [super init];
     if (self) {
         _lock = dispatch_semaphore_create(1);
+        _delay = YES;
         
         FOUNDATION_EXTERN NSNotificationName const WZThemeMangerDidSetNewAppThemeNotification;
         [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(_WZThemeMangerDidSetNewAppTheme) name:WZThemeMangerDidSetNewAppThemeNotification object:nil];
@@ -126,15 +127,11 @@ static id _instance;
         [[self.shadowCahces.objectEnumerator allObjects] enumerateObjectsUsingBlock:^(id _Nonnull obj, NSUInteger idx, BOOL *_Nonnull stop) {
             if ([obj isKindOfClass:[NSArray class]]) {
                 [obj enumerateObjectsUsingBlock:^(WZObjectShadow *shadow, NSUInteger idx, BOOL *_Nonnull stop) {
-                    dispatch_async(dispatch_get_main_queue(), ^{
-                       [shadow doShadowOpreation];
-                    });
+                    [shadow performSelectorOnMainThread:@selector(doShadowOpreation) withObject:nil waitUntilDone:NO modes:_delay?@[NSDefaultRunLoopMode]:@[NSRunLoopCommonModes]];
                 }];
             }
             else if ([obj isMemberOfClass:[WZObjectShadow class]]) {
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    [obj doShadowOpreation];
-                });
+                [obj performSelectorOnMainThread:@selector(doShadowOpreation) withObject:nil waitUntilDone:NO modes:_delay?@[NSDefaultRunLoopMode]:@[NSRunLoopCommonModes]];
             }
         }];
     });
