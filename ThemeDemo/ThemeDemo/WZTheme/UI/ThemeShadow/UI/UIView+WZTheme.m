@@ -12,8 +12,7 @@
 
 @implementation UIView (WZTheme)
 
-- (void)wz_setBackgroundColorWithName:(NSString *)colorName
-{
+- (void)wz_setBackgroundColorWithName:(NSString *)colorName {
     Snapshoot(colorName);
     [self setBackgroundColor:[UIColor theme_colorName:colorName]];
 }
