@@ -86,10 +86,12 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
         {
             // REVIEW: 这里可以加上参数类型比较
             IMP imp = method_getImplementation(aMethod);
+            void (*func1)(id, SEL, id, ...) = (void *)imp;
             switch (_values.count)
             {
                 case 0:
                 {
+                    
                     void (*func)(id, SEL) = (void *) imp;
                     func(_obShadow, _shadowSel);
                 }
@@ -97,8 +99,8 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
                 break;
                 case 1:
                 {
-                    void (*func)(id, SEL, id) = (void *) imp;
-                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0]);
+//                    void (*func)(id, SEL, id) = (void *) imp;
+                    func1(_obShadow, _shadowSel, [_values pointerAtIndex:0]);
                 }
                 break;
                 case 2:
@@ -115,8 +117,8 @@ static id WZ_VA_END;//可变参数方法时，多参数的最后一个结束标�
                 break;
                 case 4:
                 {
-                    void (*func)(id, SEL, id, id, id, id) = (void *) imp;
-                    func(_obShadow, _shadowSel, [_values pointerAtIndex:0], [_values pointerAtIndex:1], [_values pointerAtIndex:2], [_values pointerAtIndex:3]);
+//                    void (*func)(id, SEL, id, id, id, id) = (void *) imp;
+                    func1(_obShadow, _shadowSel, [_values pointerAtIndex:0], [_values pointerAtIndex:1], [_values pointerAtIndex:2], [_values pointerAtIndex:3]);
                 }
                 break;
 
